@@ -1,0 +1,48 @@
+# depslib dependency file v1.0
+1603067994 source:c:\users\sebastian\desktop\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"rlutil.h"
+	"Proveedores.h"
+	"Validaciones.h"
+
+1603062660 c:\users\sebastian\desktop\programagestiondegolosinas\tp2-gestiongolosinas\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1603070532 source:c:\users\sebastian\desktop\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"rlutil.h"
+	"Proveedores.h"
+	"Validaciones.h"
+
+1603068540 c:\users\sebastian\desktop\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.h
+	"Validaciones.h"
+
+1603069703 source:c:\users\sebastian\desktop\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"rlutil.h"
+
+1603070532 c:\users\sebastian\desktop\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.h
+
