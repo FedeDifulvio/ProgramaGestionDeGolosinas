@@ -11,44 +11,86 @@
  #include"Validaciones.h"
 
 
-
-/*void Proveedor::setCodigo(){
+void Proveedor::setCodigo(){
    bool bandera=false;
    char cod[4];
    cout<<"INGRESE CODIGO "<<endl;
-   cin>>cod;
-   bandera= validarCadena(cod,4);
-   while(bandera==false){
+   cin.ignore();
+   cin.getline(cod, 4);
+   bandera= validarCadena(cod);
+      while(bandera==false){
 
-      cout<<"ERROR REINGRESE CODIGO"<<endl;
-      cin>>cod;
-      bandera=validarCadena(cod,4);
-
-
-    }
+          cout<<"ERROR REINGRESE CODIGO"<<endl;
+           cin.getline(cod, 4);
+           bandera=validarCadena(cod);
+      }
     strcpy(codigo,cod);
 
-
 }
 
-/*void Proveedor::setNombre(char *name){
+void Proveedor::setNombre(){
+    bool bandera=false;
+   char name[50];
+   cout<<"INGRESE NOMBRE "<<endl;
+   cin.getline(name, 50);
+   bandera= validarCadena(name);
+      while(bandera==false){
 
-   strcpy(nombre,name);
-
+          cout<<"ERROR REINGRESE NOMBRE"<<endl;
+           cin.getline(name, 50);
+           bandera=validarCadena(name);
+      }
+     strcpy(nombre, name);
 }
 
 
-void Proveedor::setEmail(char *mail){
+void Proveedor::setEmail(){
 
-   strcpy(email,mail);
+    bool bandera=false;
+   char mail[50];
+   cout<<"INGRESE MAIL "<<endl;
+   cin.getline(mail, 50);
+   bandera= validarCadena(mail);
+   while(bandera==false){
 
-}*/
+          cout<<"ERROR REINGRESE EL MAIL"<<endl;
+           cin.getline(mail, 50);
+           bandera=validarCadena(mail);
+      }
+   strcpy(email, mail);
+}
+
+
+char * Proveedor:: getCodigo(){
+      return codigo;
+  }
+char * Proveedor :: getNombre(){
+      return nombre;
+}
+char * Proveedor :: getEmail(){
+      return email;
+}
+
+bool Proveedor:: grabarEnDisco(){
+
+FILE *puntero;
+
+puntero = fopen("Proveedores.dat", "ab");
+if(puntero == NULL) {
+      return false;
+}
+ fwrite(this, sizeof(Proveedor), 1, puntero);
+fclose(puntero);
+return true;
+}
+
+
 
 void menuProveedores(){
     int opc;
 
 
-    while(true){
+      while(true){
 
         gotoxy (50, 3);
         cout<<"MENÚ PROVEEDORES"<<endl;
@@ -70,51 +112,46 @@ void menuProveedores(){
         cin>>opc;
         system("cls");
 
-        switch(opc){
-         case 1: altaProveedor();
+            switch(opc){
+               case 1: altaProveedor();
 
 
-          break;
-          case 2:
+                break;
+                case 2:
 
 
-          break;
-          case 3:
+                break;
+                case 3:
 
-          break;
-          case 4:
+                break;
+                case 4:
 
-          break;
-          case 0: return ;
-          break;
-          default: cout<<"OPCION NO VALIDA."<<endl;
-          break;
-        }
+                break;
+                case 0: return ;
+                break;
+                default: cout<<"OPCION NO VALIDA."<<endl;
+                break;
+            }
 
-    }
+      }
 
 
 }
 
 
 void altaProveedor(){
- ///Proveedor reg;
- char coso [4];
- bool cadena;
-
-cin.ignore();
-cin>> coso;
-cadena=validarCadena(coso,4);
-
-if(cadena==false){
-    cout<<"error";
-
-}
-else{cout<<"ta bien";}
-cout<<cadena;
+ Proveedor reg;
 
 
-///reg.setCodigo();
+  reg.setCodigo();
+  reg.setNombre();
+  reg.setEmail();
+   if (reg.grabarEnDisco() ){
+            cout<<"guardado correctamente"<<endl;
+            system("pause");
+            system("cls");
+
+     }
 
 
 }

@@ -9,22 +9,22 @@
  #include"rlutil.h"
 
 
-bool validarCadena(char *cadena,int tam) {
+bool validarCadena(char *cadena) {
       int contador;
-      int x;
+      int x, cant;
 
+      contador = 0;
+     cant =  strlen(cadena);
 
-
-        contador = 0;
-
-        for (x= 0; x<tam; x++){
+      for (x= 0; x<cant; x++){
           if (cadena[x]== ' ' ) {
                 contador++;
             }
-        }
-        if (contador == tam) {
+      }
+      if (contador == cant) {
           return false;
-        }
-       return true;
-
-    }
+      }
+      else {
+            return true;
+      }
+}

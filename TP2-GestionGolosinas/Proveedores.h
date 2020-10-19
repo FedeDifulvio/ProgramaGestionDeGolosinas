@@ -1,6 +1,6 @@
 #ifndef PROVEEDORES_H_INCLUDED
 #define PROVEEDORES_H_INCLUDED
-#include "Validaciones.h"
+
 class Proveedor {
     private:
     char codigo[4];
@@ -9,11 +9,12 @@ class Proveedor {
 
     public:
     void setCodigo();
-    void setNombre(char *);
-    void setEmail (char[]);
+    void setNombre();
+    void setEmail ();
     char * getCodigo();
     char * getNombre();
     char * getEmail ();
+    bool grabarEnDisco();
 };
 
 

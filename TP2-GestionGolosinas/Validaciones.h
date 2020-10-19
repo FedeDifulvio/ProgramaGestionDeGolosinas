@@ -2,5 +2,5 @@
 #define VALIDACIONES_H_INCLUDED
 
 
-bool validarCadena(char*, int);
+bool validarCadena(char*);
 #endif // VALIDACIONES_H_INCLUDED
