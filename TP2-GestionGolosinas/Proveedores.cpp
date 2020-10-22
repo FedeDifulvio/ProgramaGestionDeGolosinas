@@ -3,6 +3,7 @@
 #include <ctime>
 #include<cstdio>
 #include<cstring>
+#include <iomanip>
 
  using namespace std;
 
@@ -112,11 +113,17 @@ bool Proveedor :: leerDeDisco( int pos ) {
 }
 
 void Proveedor :: mostrarRegistro() {
+      setColor(rlutil:: GREEN);
+      cout<<left;
+     cout<<setw(15);
+      cout<< nombre;
+      cout<<setw(15);
+      cout << codigo;
+      cout<<setw(5);
+      cout<<email;
+      cout<<endl;
+      cout<<"........................................................."<<endl;
 
-      cout<<"NOMBRE: " << nombre <<endl;
-      cout <<"ID : "<< codigo <<endl;
-      cout<< "Email: "<<email <<endl;
-      cout<<endl<<endl;
 }
 
 bool Proveedor :: validarCodProveedor( char * cod){
@@ -212,12 +219,19 @@ void listarProveedores() {
       system("cls");
       Proveedor listado;
       int pos = 0;
+      setColor(rlutil:: BLUE);
+      cout<<left;
+      cout<<"---------------------------------------------------------"<<endl;
+      cout<<setw(15)<<"NOMBRE    | "<<setw(15)<<"CÓDIGO    |" <<setw(8)<<"         MAIL             |"<<endl;
+      cout<<"---------------------------------------------------------"<<endl;
       while(listado.leerDeDisco(pos)) {
             listado.mostrarRegistro();
             pos ++;
       }
+      cout<<endl<<endl;
       system("pause");
       system("cls");
+      setColor(rlutil:: WHITE);
 }
 
 
