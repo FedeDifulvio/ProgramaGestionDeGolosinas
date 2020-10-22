@@ -3,4 +3,5 @@
 
 
 bool validarCadena(char*);
+
 #endif // VALIDACIONES_H_INCLUDED

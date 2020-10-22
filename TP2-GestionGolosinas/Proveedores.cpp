@@ -13,16 +13,19 @@
 
 void Proveedor::setCodigo(){
    bool bandera=false;
+   bool bandera2 = false;
    char cod[4];
-   cout<<"INGRESE CODIGO "<<endl;
+   cout<<"INGRESE CODIGO (3 LETRAS) "<<endl;
    cin.ignore();
    cin.getline(cod, 4);
    bandera= validarCadena(cod);
-      while(bandera==false){
+   bandera2 = validarCodProveedor(cod);
+      while(bandera==false || bandera2 == false){
 
-          cout<<"ERROR REINGRESE CODIGO"<<endl;
+          cout<<"ERROR: CODIGO INVÁLIDO O REPETIDO"<<endl;
            cin.getline(cod, 4);
            bandera=validarCadena(cod);
+            bandera2 = validarCodProveedor(cod);
       }
     strcpy(codigo,cod);
 
@@ -88,6 +91,47 @@ if(puntero == NULL) {
    return true;
 }
 
+bool Proveedor :: leerDeDisco( int pos ) {
+      FILE *puntero;
+      bool bandera;
+      puntero = fopen("ARCHIVOS/Proveedores.dat", "rb");
+      if(puntero == NULL) {
+      return false;
+}
+      fseek(puntero, sizeof(Proveedor)*pos, SEEK_SET);
+      bandera = fread(this, sizeof(Proveedor), 1, puntero);
+    fclose(puntero);
+    return bandera;
+}
+
+void Proveedor :: mostrarRegistro() {
+
+      cout<<"NOMBRE: " << nombre <<endl;
+      cout <<"ID : "<< codigo <<endl;
+      cout<< "Email: "<<email <<endl;
+      cout<<endl<<endl;
+}
+
+bool Proveedor :: validarCodProveedor( char * cod){
+      FILE *puntero;
+      int ban;
+
+      puntero = fopen("ARCHIVOS/Proveedores.dat", "rb");
+      if(puntero == NULL) {
+      return false;
+     }
+
+      while (fread(this, sizeof(Proveedor), 1, puntero)){
+         ban = strcmp(this->codigo, cod);
+            if(ban == 0) {
+                  return false;
+                  fclose(puntero);
+           }
+      }
+    fclose(puntero);
+    return true;
+}
+
 
 
 void menuProveedores(){
@@ -103,9 +147,7 @@ void menuProveedores(){
             gotoxy(50, 5);
             cout<<"1) ALTA PROVEEDOR "<<endl;
             gotoxy(50, 6);
-            cout<<"2) BAJA PROVEEDOR "<<endl;
-            gotoxy(50, 7);
-            cout<<"3) LISTAR TODOS LOS PROVEEDORES "<<endl;
+            cout<<"2) LISTAR PROVEEDORES  "<<endl;
             gotoxy(47, 8);
             cout<<"------------------------"<<endl;
             gotoxy(48, 9);
@@ -121,7 +163,7 @@ void menuProveedores(){
 
 
                 break;
-                case 2:
+                case 2: listarProveedores();
 
 
                 break;
@@ -158,6 +200,17 @@ void altaProveedor(){
       system("cls");
 }
 
+void listarProveedores() {
 
+      system("cls");
+      Proveedor listado;
+      int pos = 0;
+      while(listado.leerDeDisco(pos)) {
+            listado.mostrarRegistro();
+            pos ++;
+      }
+      system("pause");
+      system("cls");
+}
 
 

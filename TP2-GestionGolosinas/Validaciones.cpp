@@ -28,3 +28,6 @@ bool validarCadena(char *cadena) {
             return true;
       }
 }
+
+
+

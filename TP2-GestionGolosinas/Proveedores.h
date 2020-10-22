@@ -15,6 +15,9 @@ class Proveedor {
     char * getNombre();
     char * getEmail ();
     bool grabarEnDisco();
+    bool leerDeDisco(int);
+    void mostrarRegistro();
+    bool validarCodProveedor(char*);
 };
 
 
@@ -23,6 +26,7 @@ class Proveedor {
 
 void menuProveedores();
 void altaProveedor();
+void listarProveedores();
 
 
 #endif // PROVEEDORES_H_INCLUDED
