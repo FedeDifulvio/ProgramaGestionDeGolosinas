@@ -9,20 +9,23 @@
  #include"rlutil.h"
  #include"Proveedores.h"
  #include"Validaciones.h"
+ #include"funcionesGlobales.h"
 
 
 void Proveedor::setCodigo(){
    bool bandera=false;
    bool bandera2 = false;
    char cod[4];
-   cout<<"INGRESE CODIGO (3 LETRAS) "<<endl;
+   cout<<"INGRESE CODIGO (3 LETRAS): ";
    cin.ignore();
    cin.getline(cod, 4);
    bandera= validarCadena(cod);
    bandera2 = validarCodProveedor(cod);
       while(bandera==false || bandera2 == false){
 
-          cout<<"ERROR: CODIGO INVÁLIDO O REPETIDO"<<endl;
+          mensajeError("ERROR, CODIGO INVALIDO O REPETIDO");
+          cout<<"INGRESE CODIGO (3 LETRAS): ";
+          system("color 0F");
            cin.getline(cod, 4);
            bandera=validarCadena(cod);
             bandera2 = validarCodProveedor(cod);
@@ -34,12 +37,14 @@ void Proveedor::setCodigo(){
 void Proveedor::setNombre(){
     bool bandera=false;
    char name[50];
-   cout<<"INGRESE NOMBRE "<<endl;
+   cout<<"INGRESE NOMBRE ";
    cin.getline(name, 50);
    bandera= validarCadena(name);
       while(bandera==false){
 
-          cout<<"ERROR REINGRESE NOMBRE"<<endl;
+          mensajeError("ERROR DE DATO");
+            system("color 0F");
+           cout<<"INGRESE NOMBRE:  ";
            cin.getline(name, 50);
            bandera=validarCadena(name);
       }
@@ -51,12 +56,14 @@ void Proveedor::setEmail(){
 
     bool bandera=false;
    char mail[50];
-   cout<<"INGRESE MAIL "<<endl;
+   cout<<"INGRESE MAIL ";
    cin.getline(mail, 50);
    bandera= validarCadena(mail);
    while(bandera==false){
 
-          cout<<"ERROR REINGRESE EL MAIL"<<endl;
+          mensajeError("ERROR REINGRESE EL MAIL");
+            system("color 0F");
+           cout<<"INGRESE MAIL ";
            cin.getline(mail, 50);
            bandera=validarCadena(mail);
       }
@@ -191,13 +198,13 @@ void altaProveedor(){
   nuevoProveedor.setEmail();
 
       if (nuevoProveedor.grabarEnDisco() ){
-            cout<<"guardado correctamente"<<endl;
+           mensajeExito("Proveedor registrado");
+            system("color 0F");
       }
       else{
-          cout<< "Error de archivo" <<endl;
+          mensajeError("Error de archivo" );
+            system("color 0F");
       }
-      system("pause");
-      system("cls");
 }
 
 void listarProveedores() {

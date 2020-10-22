@@ -74,7 +74,7 @@
 
 1603329309 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.h
 
-1603330706 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.cpp
+1603407011 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -83,6 +83,7 @@
 	"rlutil.h"
 	"Proveedores.h"
 	"Validaciones.h"
+	"funcionesGlobales.h"
 
 1603329309 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.cpp
 	<iostream>
@@ -91,4 +92,14 @@
 	<cstdio>
 	<cstring>
 	"rlutil.h"
+
+1603406956 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"funcionesGlobales.h"
+
+1603406956 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.h
 
