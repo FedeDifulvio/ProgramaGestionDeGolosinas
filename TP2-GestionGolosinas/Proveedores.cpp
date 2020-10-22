@@ -63,7 +63,7 @@ void Proveedor::setEmail(){
 
 char * Proveedor:: getCodigo(){
       return codigo;
-  }
+}
 char * Proveedor :: getNombre(){
       return nombre;
 }
@@ -74,14 +74,18 @@ char * Proveedor :: getEmail(){
 bool Proveedor:: grabarEnDisco(){
 
 FILE *puntero;
+bool bandera;
 
 puntero = fopen("Proveedores.dat", "ab");
 if(puntero == NULL) {
       return false;
 }
- fwrite(this, sizeof(Proveedor), 1, puntero);
-fclose(puntero);
-return true;
+  bandera = fwrite(this, sizeof(Proveedor), 1, puntero);
+  fclose(puntero);
+      if (bandera == false) {
+           return false;
+      }
+   return true;
 }
 
 
@@ -92,25 +96,25 @@ void menuProveedores(){
 
       while(true){
 
-        gotoxy (50, 3);
-        cout<<"MENÚ PROVEEDORES"<<endl;
-        gotoxy(47, 4);
-        cout<<"------------------------"<<endl;
-        gotoxy(50, 5);
-        cout<<"1) ALTA PROVEEDOR "<<endl;
-        gotoxy(50, 6);
-        cout<<"2) BAJA PROVEEDOR "<<endl;
-        gotoxy(50, 7);
-        cout<<"3) LISTAR TODOS LOS PROVEEDORES "<<endl;
-        gotoxy(47, 8);
-        cout<<"------------------------"<<endl;
-        gotoxy(48, 9);
-        cout<<"0) SALIR DEL PROGRAMA"<<endl;
-        gotoxy(50, 12);
-        cout<<"INGRESE UNA OPCIÓN: "<<endl;
-        gotoxy(70, 12);
-        cin>>opc;
-        system("cls");
+            gotoxy (50, 3);
+            cout<<"MENÚ PROVEEDORES"<<endl;
+            gotoxy(47, 4);
+            cout<<"------------------------"<<endl;
+            gotoxy(50, 5);
+            cout<<"1) ALTA PROVEEDOR "<<endl;
+            gotoxy(50, 6);
+            cout<<"2) BAJA PROVEEDOR "<<endl;
+            gotoxy(50, 7);
+            cout<<"3) LISTAR TODOS LOS PROVEEDORES "<<endl;
+            gotoxy(47, 8);
+            cout<<"------------------------"<<endl;
+            gotoxy(48, 9);
+            cout<<"0) SALIR DEL PROGRAMA"<<endl;
+            gotoxy(50, 12);
+            cout<<"INGRESE UNA OPCIÓN: "<<endl;
+            gotoxy(70, 12);
+            cin>>opc;
+            system("cls");
 
             switch(opc){
                case 1: altaProveedor();
@@ -134,26 +138,24 @@ void menuProveedores(){
             }
 
       }
-
-
 }
 
 
 void altaProveedor(){
- Proveedor reg;
+ Proveedor nuevoProveedor;
 
+  nuevoProveedor.setCodigo();
+  nuevoProveedor.setNombre();
+  nuevoProveedor.setEmail();
 
-  reg.setCodigo();
-  reg.setNombre();
-  reg.setEmail();
-   if (reg.grabarEnDisco() ){
+      if (nuevoProveedor.grabarEnDisco() ){
             cout<<"guardado correctamente"<<endl;
-            system("pause");
-            system("cls");
-
-     }
-
-
+      }
+      else{
+          cout<< "Error de archivo" <<endl;
+      }
+      system("pause");
+      system("cls");
 }
 
 

@@ -31,11 +31,11 @@ int main(){
             gotoxy(50, 8);
             cout<<"4) PRODUCTOS "<<endl;
             gotoxy(50, 9);
-            cout<<"4) VENTAS "<<endl;
+            cout<<"5) VENTAS "<<endl;
             gotoxy(50, 10);
-            cout<<"4) STOCK "<<endl;
+            cout<<"6) STOCK "<<endl;
             gotoxy(50, 11);
-            cout<<"4) ESTADISTICAS "<<endl;
+            cout<<"7) ESTADISTICAS "<<endl;
             gotoxy(47, 12);
             cout<<"------------------------"<<endl;
             gotoxy(48, 14);
