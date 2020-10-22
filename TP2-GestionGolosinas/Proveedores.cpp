@@ -76,7 +76,7 @@ bool Proveedor:: grabarEnDisco(){
 FILE *puntero;
 bool bandera;
 
-puntero = fopen("Proveedores.dat", "ab");
+puntero = fopen("ARCHIVOS/Proveedores.dat", "ab");
 if(puntero == NULL) {
       return false;
 }
