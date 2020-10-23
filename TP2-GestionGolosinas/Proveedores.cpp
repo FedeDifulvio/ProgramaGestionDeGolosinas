@@ -114,7 +114,7 @@ bool Proveedor :: leerDeDisco( int pos ) {
 
 void Proveedor :: mostrarRegistro() {
       setColor(rlutil:: GREEN);
-      cout<<left;
+    cout<<left;
      cout<<setw(15);
       cout<< nombre;
       cout<<setw(15);
@@ -122,6 +122,7 @@ void Proveedor :: mostrarRegistro() {
       cout<<setw(5);
       cout<<email;
       cout<<endl;
+      setColor(rlutil:: BLUE);
       cout<<"........................................................."<<endl;
 
 }
@@ -223,9 +224,12 @@ void listarProveedores() {
       cout<<left;
       cout<<"---------------------------------------------------------"<<endl;
       cout<<setw(15)<<"NOMBRE    | "<<setw(15)<<"CÓDIGO    |" <<setw(8)<<"         MAIL             |"<<endl;
-      cout<<"---------------------------------------------------------"<<endl;
+     cout<<"---------------------------------------------------------"<<endl;
+
+
+
       while(listado.leerDeDisco(pos)) {
-            listado.mostrarRegistro();
+           listado.mostrarRegistro();
             pos ++;
       }
       cout<<endl<<endl;
