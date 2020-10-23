@@ -219,7 +219,7 @@ void listarProveedores() {
       system("cls");
       Proveedor listado;
       int pos = 0;
-      setColor(rlutil:: BLUE);
+      setColor(rlutil:: LIGHTBLUE);
       cout<<left;
       cout<<"---------------------------------------------------------"<<endl;
       cout<<setw(15)<<"NOMBRE    | "<<setw(15)<<"CÓDIGO    |" <<setw(8)<<"         MAIL             |"<<endl;
