@@ -1,0 +1,37 @@
+#ifndef CLIENTES_H_INCLUDED
+#define CLIENTES_H_INCLUDED
+
+class Cliente{
+      private:
+      int dni;  ///Su código indentificador
+      char nombre[70];
+      char apellido[70];
+      int numTelefono;
+      bool estado;
+
+      public:
+
+     void setDni ();
+     void setNombre();
+     void setApellido();
+     void setNumTelefono();
+     void setEstado(bool);
+     char * getNombre();
+     char * getApellido();
+     int  getDni ();
+     int getPosicion(int);
+     int  getNumTelefono();
+     bool getEstado();
+     bool grabarEnDisco(int = -1);
+     bool leerDeDisco(int);
+     void mostrarRegistro();
+
+
+ };
+
+ void menuClientes();
+ void altaCliente ();
+ void listarClientes();
+ void bajaCliente();
+
+#endif // CLIENTES_H_INCLUDED

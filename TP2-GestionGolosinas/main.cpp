@@ -9,6 +9,7 @@
  #include"rlutil.h"
  #include "Proveedores.h"
  #include "Validaciones.h"
+ #include "Clientes.h"
 
 
 int main(){
@@ -56,7 +57,7 @@ int main(){
 
 
                   break;
-                  case 3:
+                  case 3: menuClientes();
 
                   break;
                   case 4:

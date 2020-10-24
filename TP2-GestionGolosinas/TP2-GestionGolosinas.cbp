@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Clientes.cpp" />
+		<Unit filename="Clientes.h" />
 		<Unit filename="FuncionesGlobales.cpp" />
 		<Unit filename="Proveedores.cpp" />
 		<Unit filename="Proveedores.h" />
@@ -39,10 +41,6 @@
 		<Unit filename="Validaciones.h" />
 		<Unit filename="funcionesGlobales.h" />
 		<Unit filename="main.cpp" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

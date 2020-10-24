@@ -38,7 +38,7 @@ void Proveedor::setCodigo(){
 void Proveedor::setNombre(){
     bool bandera=false;
    char name[50];
-   cout<<"INGRESE NOMBRE ";
+   cout<<"INGRESE NOMBRE: ";
    cin.getline(name, 50);
    bandera= validarCadena(name);
       while(bandera==false){
@@ -57,7 +57,7 @@ void Proveedor::setEmail(){
 
     bool bandera=false;
    char mail[50];
-   cout<<"INGRESE MAIL ";
+   cout<<"INGRESE MAIL: ";
    cin.getline(mail, 50);
    bandera= validarCadena(mail);
    while(bandera==false){
@@ -164,7 +164,7 @@ bool Proveedor :: validarCodProveedor( char * cod){
 
       puntero = fopen("ARCHIVOS/Proveedores.dat", "rb");
       if(puntero == NULL) {
-      return false;
+      return true;
      }
 
       while (fread(this, sizeof(Proveedor), 1, puntero)){
