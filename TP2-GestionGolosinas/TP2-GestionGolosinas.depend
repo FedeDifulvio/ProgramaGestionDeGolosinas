@@ -104,3 +104,61 @@
 
 1603406956 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.h
 
+1603493772 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"funcionesGlobales.h"
+
+1603491294 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.h
+
+1603331093 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"rlutil.h"
+	"Proveedores.h"
+	"Validaciones.h"
+
+1603072795 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1603497642 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.h
+
+1603331093 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.h
+
+1603498797 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	<iomanip>
+	"rlutil.h"
+	"Proveedores.h"
+	"Validaciones.h"
+	"funcionesGlobales.h"
+
+1603331093 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"rlutil.h"
+

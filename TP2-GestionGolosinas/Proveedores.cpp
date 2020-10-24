@@ -70,6 +70,11 @@ void Proveedor::setEmail(){
       }
    strcpy(email, mail);
 }
+void Proveedor::setEstado(bool state){
+
+estado = state;
+
+}
 
 
 char * Proveedor:: getCodigo(){
@@ -81,16 +86,42 @@ char * Proveedor :: getNombre(){
 char * Proveedor :: getEmail(){
       return email;
 }
+bool  Proveedor :: getEstado(){
 
-bool Proveedor:: grabarEnDisco(){
+return estado;
+}
+int Proveedor :: getPosicion (char cod [4]){
+int pos = 0;
+
+while(leerDeDisco(pos)) {
+            if(strcmp(this->codigo,cod)== 0){
+               return pos;
+            }
+        pos ++;
+    }
+    return -1;
+}
+
+
+bool Proveedor:: grabarEnDisco( int pos){
 
 FILE *puntero;
 bool bandera;
+    if (pos == -1){
+        puntero = fopen("ARCHIVOS/Proveedores.dat", "ab");
+            if(puntero == NULL) {
+                  return false;
+        }
+    }
 
-puntero = fopen("ARCHIVOS/Proveedores.dat", "ab");
-if(puntero == NULL) {
-      return false;
-}
+   else{
+        puntero = fopen("ARCHIVOS/Proveedores.dat", "rb+");
+        if(puntero == NULL) {
+          return false;
+        }
+        fseek(puntero,pos* sizeof(Proveedor),0);
+    }
+
   bandera = fwrite(this, sizeof(Proveedor), 1, puntero);
   fclose(puntero);
       if (bandera == false) {
@@ -163,10 +194,12 @@ void menuProveedores(){
             cout<<"1) ALTA PROVEEDOR "<<endl;
             gotoxy(50, 6);
             cout<<"2) LISTAR PROVEEDORES  "<<endl;
+            gotoxy(50, 7);
+            cout<<"3) BAJA PROVEEDOR "<<endl;
             gotoxy(47, 8);
             cout<<"------------------------"<<endl;
             gotoxy(48, 9);
-            cout<<"0) SALIR DEL PROGRAMA"<<endl;
+            cout<<"0) VOLVER AL MENÚ "<<endl;
             gotoxy(50, 12);
             cout<<"INGRESE UNA OPCIÓN: "<<endl;
             gotoxy(70, 12);
@@ -182,10 +215,8 @@ void menuProveedores(){
 
 
                 break;
-                case 3:
+                case 3: bajaProveedor();
 
-                break;
-                case 4:
 
                 break;
                 case 0: return ;
@@ -204,6 +235,7 @@ void altaProveedor(){
   nuevoProveedor.setCodigo();
   nuevoProveedor.setNombre();
   nuevoProveedor.setEmail();
+  nuevoProveedor.setEstado(true);
 
       if (nuevoProveedor.grabarEnDisco() ){
            mensajeExito("Proveedor registrado");
@@ -229,13 +261,47 @@ void listarProveedores() {
 
 
       while(listado.leerDeDisco(pos)) {
-           listado.mostrarRegistro();
+            if(listado.getEstado()){
+               listado.mostrarRegistro();
+
+            }
             pos ++;
-      }
+        }
       cout<<endl<<endl;
       system("pause");
       system("cls");
       setColor(rlutil:: WHITE);
+}
+
+void bajaProveedor(){
+Proveedor aBajar;
+system("cls");
+char cod[4];
+int pos;
+char continuar;
+
+cout<< "INGRESE EL CODIGO DE PROVEEDOR A DAR DE BAJA: ";
+cin>> cod;
+pos = aBajar.getPosicion(cod);
+if (pos == -1){
+   mensajeError("NO SE ENCONTRO EL CODIGO DE PROVEEDOR");
+   system("color 0F");
+   return;
+}
+aBajar.leerDeDisco(pos);
+cout << endl << endl;
+aBajar.mostrarRegistro();
+system("color 0F");
+cout << endl << endl;
+cout<< "DESEA DAR DE BAJA EL REGISTRO? (S/N)";
+cin >> continuar;
+if(continuar=='S' || continuar == 's'){
+aBajar.setEstado(false);
+aBajar.grabarEnDisco(pos);
+   mensajeExito("PROVEEDOR DADO DE BAJA CON EXITO");
+}
+system ("cls");
+system("color 0F");
 }
 
 
