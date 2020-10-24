@@ -35,6 +35,8 @@
 		<Unit filename="Clientes.cpp" />
 		<Unit filename="Clientes.h" />
 		<Unit filename="FuncionesGlobales.cpp" />
+		<Unit filename="Productos.cpp" />
+		<Unit filename="Productos.h" />
 		<Unit filename="Proveedores.cpp" />
 		<Unit filename="Proveedores.h" />
 		<Unit filename="Validaciones.cpp" />

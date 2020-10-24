@@ -30,20 +30,18 @@ int main(){
             gotoxy(50, 7);
             cout<<"3) CLIENTES "<<endl;
             gotoxy(50, 8);
-            cout<<"4) PRODUCTOS "<<endl;
+            cout<<"4) PRODUCTOS / STOCK "<<endl;
             gotoxy(50, 9);
             cout<<"5) VENTAS "<<endl;
             gotoxy(50, 10);
-            cout<<"6) STOCK "<<endl;
-            gotoxy(50, 11);
-            cout<<"7) ESTADISTICAS "<<endl;
-            gotoxy(47, 12);
+            cout<<"6) ESTADISTICAS "<<endl;
+            gotoxy(47, 11);
             cout<<"------------------------"<<endl;
-            gotoxy(48, 14);
+            gotoxy(48, 13);
             cout<<"0) SALIR DEL PROGRAMA"<<endl;
-            gotoxy(50, 16);
+            gotoxy(50, 15);
             cout<<"INGRESE UNA OPCIÓN: "<<endl;
-            gotoxy(70, 16);
+            gotoxy(70, 15);
             cin>>opc;
             system("cls");
 
