@@ -8,7 +8,6 @@
  using namespace std;
 
  #include"rlutil.h"
- #include"Validaciones.h"
  #include"funcionesGlobales.h"
  #include "Clientes.h"
 

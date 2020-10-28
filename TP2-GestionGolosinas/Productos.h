@@ -10,20 +10,20 @@ private:
       int stock;
 
 public:
-      void setCodigo();
-      void setNombre();
-      void setPrecio();
-      void setTipo();
-      void setStock();
-      char *getCodigo();
-      char *getNombreTipo();
-      int getTipo();
-      float getPrecio();
-      int getStock();
-      int getTipo();
-      bool grabarEnDisco(int = -1);
-      bool leerDeDisco(int);
-      void mostrarRegistro();
+    void setCodigo();
+    void setNombre();
+    void setPrecio();
+    void setTipo();
+    void setStock();
+    char *getCodigo();
+    char *getNombre();
+    const char *getNombreTipo();
+    int getTipo();
+    float getPrecio();
+    int getStock();
+    bool grabarEnDisco(int = -1);
+    bool leerDeDisco(int);
+    void mostrarRegistro();
 };
 
 #endif // PRODUCTOS_H_INCLUDED

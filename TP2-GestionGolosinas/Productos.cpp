@@ -23,13 +23,13 @@ void Articulo::setCodigo(){
 
     while(bandera==false ){
 
-      mensajeError("ERROR, CODIGO INVALIDO ");
-      cout<<"NGRESE CODIGO DEL PRODUCTO NUEVAMENTE: ";
-      system("color 0F");
-       cin.getline(cod, 7);
-       bandera=validarCadena(cod);
+        mensajeError("ERROR, CODIGO INVALIDO ");
+         cout<<"NGRESE CODIGO DEL PRODUCTO NUEVAMENTE: ";
+         system("color 0F");
+         cin.getline(cod, 7);
+          bandera=validarCadena(cod);
 
-   }
+      }
     strcpy(codigo,cod);
 
 }
@@ -106,39 +106,38 @@ int Articulo::getStock(){
 
 return stock;
 }
-char * Articulo::getNombreTipo(){
+const char * Articulo::getNombreTipo(){
 
     const char* bombon = "bombon";
     const char* chocolate = "chocolate";
     const char* alfajor = "alfajor";
     const char* caramelos = "caramelos";
-    getTipo();
-    switch(tipo){
 
-    case 1: return bombon;
+    switch(this->codTipo){
 
-    break;
-    case 2:return chocolate;
+          case 1: return bombon;
 
-    break;
-    case 3:return alfajor;
+          break;
+          case 2:return chocolate;
 
-    break;
-    case 4:return caramelos;
+          break;
+          case 3:return alfajor;
 
-    break;
+          break;
+          case 4:return caramelos;
+
+          break;
 
 
-    }
+      }
 
 }
  int Articulo::getTipo(){
-
- return codTipo;
+      return codTipo;
  }
 
 
-bool Articulo::grabarEnDisco(int = -1){
+bool Articulo::grabarEnDisco(int pos){
  FILE *puntero;
 bool bandera;
     if (pos == -1){
@@ -164,7 +163,7 @@ bool bandera;
    return true;
 
  }
-bool Articulo::leerDeDisco(int){
+bool Articulo::leerDeDisco(int pos){
 FILE *puntero;
       bool bandera;
       puntero = fopen("ARCHIVOS/Productos.dat", "rb");

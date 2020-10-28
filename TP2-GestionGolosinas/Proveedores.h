@@ -25,11 +25,6 @@ class Proveedor {
 
 };
 
-
-
-
-
-
 void menuProveedores();
 void altaProveedor();
 void listarProveedores();

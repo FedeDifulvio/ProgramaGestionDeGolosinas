@@ -3,6 +3,7 @@
 
 void mensajeError( char[]);
 void mensajeExito( char[]);
+bool validarCadena(char*);
 
 
 #endif // FUNCIONESGLOBALES_H_INCLUDED

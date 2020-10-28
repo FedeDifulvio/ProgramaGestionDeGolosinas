@@ -9,7 +9,6 @@
 
  #include"rlutil.h"
  #include"Proveedores.h"
- #include"Validaciones.h"
  #include"funcionesGlobales.h"
 
 
@@ -60,7 +59,7 @@ void Proveedor::setEmail(){
    cout<<"INGRESE MAIL: ";
    cin.getline(mail, 50);
    bandera= validarCadena(mail);
-   while(bandera==false){
+      while(bandera==false){
 
           mensajeError("ERROR REINGRESE EL MAIL");
             system("color 0F");
@@ -93,12 +92,12 @@ return estado;
 int Proveedor :: getPosicion (char cod [4]){
 int pos = 0;
 
-while(leerDeDisco(pos)) {
+     while(leerDeDisco(pos)) {
             if(strcmp(this->codigo,cod)== 0){
                return pos;
             }
         pos ++;
-    }
+      }
     return -1;
 }
 
@@ -107,20 +106,20 @@ bool Proveedor:: grabarEnDisco( int pos){
 
 FILE *puntero;
 bool bandera;
-    if (pos == -1){
+      if (pos == -1){
         puntero = fopen("ARCHIVOS/Proveedores.dat", "ab");
             if(puntero == NULL) {
                   return false;
-        }
-    }
+            }
+      }
 
-   else{
-        puntero = fopen("ARCHIVOS/Proveedores.dat", "rb+");
-        if(puntero == NULL) {
-          return false;
-        }
-        fseek(puntero,pos* sizeof(Proveedor),0);
-    }
+      else{
+            puntero = fopen("ARCHIVOS/Proveedores.dat", "rb+");
+            if(puntero == NULL) {
+                return false;
+            }
+           fseek(puntero,pos* sizeof(Proveedor),0);
+      }
 
   bandera = fwrite(this, sizeof(Proveedor), 1, puntero);
   fclose(puntero);
@@ -172,7 +171,7 @@ bool Proveedor :: validarCodProveedor( char * cod){
             if(ban == 0) {
                   return false;
                   fclose(puntero);
-           }
+            }
       }
     fclose(puntero);
     return true;
