@@ -1,5 +1,9 @@
 #include <iostream>
 #include <cstdlib>
+#include<cstdio>
+#include<cstring>
+#include <iomanip>
+
 
  using namespace std;
 
@@ -163,14 +167,14 @@ void realizarCompra(){
 
     ID =  identificador.generateID();  /// Clase para generar el ID que va a linkear todos los registros de la compra.
     identificador.generatePos();
-    identificador.grabarEnDisco();
+    identificador.grabarEnDisco(); /// se guarda en archivoDeID
 
     do{
             cout<<"Ingrese código de producto a comprar: "<<endl;
             cin>>codProducto;
             pos = productoExistente.getPosicion(codProducto);
             if(pos == -1) {
-                  cout<<" REGISTRO DE PRODUCTO NUEVO"<<endl;
+                  cout<<" REGISTRO DE PRODUCTO NUEVO"<<endl;      /// Si el producto no existe, se hace el registro del producto.
                   nuevoProducto.setCodigo();
                   nuevoProducto.setNombre();
                   nuevoProducto.setTipo();
@@ -195,7 +199,7 @@ void realizarCompra(){
 
             }
             else{
-                  productoExistente.leerDeDisco(pos);
+                  productoExistente.leerDeDisco(pos);                /// si el producto ya existe se utiliza el objeto producto existente para actualizar el stock con la nueva cantidad ingresada
                   productoExistente.mostrarRegistro();
                   strcpy(nombre, productoExistente.getNombre());
                   cout<<" INGRESE LA CANTIDAD A COMPRAR: ";
@@ -206,9 +210,9 @@ void realizarCompra(){
             }
 
 
-            nuevaCompra.setCodigo(ID);
+            nuevaCompra.setCodigo(ID);                      ///  en el archivo de compras, se guarda el subregistro de la compra (un subregistro es la compra de un producto particular).
+            nuevaCompra.setCantidad(cantidad);       /// El registro total de compra se compone de todos los subregistros que tienen el mismo ID.
             nuevaCompra.setCodProducto(codProducto);
-            nuevaCompra.setCantidad(cantidad);
             nuevaCompra.setNombreProducto(nombre);
             nuevaCompra.setCodProveedor();
             bandera = nuevaCompra.grabarEnDisco();
