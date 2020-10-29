@@ -8,8 +8,8 @@
 
  #include"rlutil.h"
  #include "Proveedores.h"
- #include "Validaciones.h"
  #include "Clientes.h"
+ #include "compra.h"
 
 
 int main(){
@@ -51,7 +51,7 @@ int main(){
 
 
                   break;
-                  case 2:
+                  case 2:  menuCompras();
 
 
                   break;

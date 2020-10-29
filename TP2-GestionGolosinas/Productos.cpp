@@ -8,9 +8,15 @@
 using namespace std;
 
  #include"rlutil.h"
- #include"Validaciones.h"
  #include"funcionesGlobales.h"
  #include"Productos.h"
+
+
+Articulo :: Articulo(int indicador){
+      if(indicador == 1) {
+            stock = 0;
+      }
+ }
 
 void Articulo::setCodigo(){
 
@@ -76,20 +82,9 @@ void Articulo::setTipo(){
  }
 codTipo = tipoProducto;
 }
-void Articulo::setStock(){
-int cantidad;
- cout << "INGRESE CANTIDAD DE STOCK: ";
- cin >> cantidad;
+void Articulo::actualizarStock( int cant){
 
- while(precio <= 0){
-    mensajeError("ERROR DE DATO");
-    system("color 0F");
-    cout << "INGRESE CANTIDAD DE STOCK: ";
-    cin >> cantidad;
- }
-stock = cantidad;
-
-
+      stock += cant;
 }
 char *Articulo::getCodigo(){
 return codigo;
@@ -144,8 +139,8 @@ bool bandera;
         puntero = fopen("ARCHIVOS/Productos.dat", "ab");
             if(puntero == NULL) {
                   return false;
-        }
-    }
+            }
+      }
 
    else{
         puntero = fopen("ARCHIVOS/Productos.dat", "rb+");
@@ -194,5 +189,17 @@ setColor(rlutil:: GREEN);
     setColor(rlutil:: BLUE);
     cout<<"........................................................."<<endl;
 
+}
+
+int Articulo:: getPosicion (char cod [6]){
+int pos = 0;
+
+     while(leerDeDisco(pos)) {
+            if(strcmp(this->codigo,cod)== 0){
+               return pos;
+            }
+        pos ++;
+      }
+    return -1;
 }
 

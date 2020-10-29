@@ -34,15 +34,23 @@
 		</Compiler>
 		<Unit filename="Clientes.cpp" />
 		<Unit filename="Clientes.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="FuncionesGlobales.cpp" />
+		<Unit filename="IDgenerator.cpp" />
+		<Unit filename="IDgenerator.h" />
 		<Unit filename="Productos.cpp" />
 		<Unit filename="Productos.h" />
 		<Unit filename="Proveedores.cpp" />
 		<Unit filename="Proveedores.h" />
-		<Unit filename="Validaciones.cpp" />
-		<Unit filename="Validaciones.h" />
+		<Unit filename="compra.cpp" />
+		<Unit filename="compra.h" />
 		<Unit filename="funcionesGlobales.h" />
 		<Unit filename="main.cpp" />
-		<Extensions />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

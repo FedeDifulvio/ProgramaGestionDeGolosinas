@@ -10,11 +10,12 @@ private:
       int stock;
 
 public:
+    Articulo(int = 0);  /// si recibe un 1, inicializa el stock en cero.
     void setCodigo();
     void setNombre();
     void setPrecio();
     void setTipo();
-    void setStock();
+    void actualizarStock(int );
     char *getCodigo();
     char *getNombre();
     const char *getNombreTipo();
@@ -24,6 +25,7 @@ public:
     bool grabarEnDisco(int = -1);
     bool leerDeDisco(int);
     void mostrarRegistro();
+    int getPosicion(char[]);
 };
 
 #endif // PRODUCTOS_H_INCLUDED
