@@ -3,7 +3,8 @@
 
 class Cliente{
       private:
-      int dni;  ///Su código indentificador
+      int idCliente;
+      int dni;
       char nombre[70];
       char apellido[70];
       int numTelefono;
@@ -25,7 +26,7 @@ class Cliente{
      bool grabarEnDisco(int = -1);
      bool leerDeDisco(int);
      void mostrarRegistro();
-
+     void setCodCliente();
 
  };
 

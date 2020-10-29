@@ -288,9 +288,14 @@ if (pos == -1){
    return;
 }
 aBajar.leerDeDisco(pos);
+setColor(rlutil:: LIGHTBLUE);
 cout << endl << endl;
+cout<<left;
+cout<<"---------------------------------------------------------"<<endl;
+cout<<setw(15)<<"  NOMBRE    | "<<setw(15)<<"CÓDIGO    |" <<setw(8)<<"         MAIL             |"<<endl;
+cout<<"---------------------------------------------------------"<<endl;
 aBajar.mostrarRegistro();
-system("color 0F");
+setColor(rlutil:: WHITE);
 cout << endl << endl;
 cout<< "DESEA DAR DE BAJA EL REGISTRO? (S/N)";
 cin >> continuar;

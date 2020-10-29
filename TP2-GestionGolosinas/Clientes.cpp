@@ -10,6 +10,24 @@
  #include"rlutil.h"
  #include"funcionesGlobales.h"
  #include "Clientes.h"
+void Cliente::setCodCliente(){
+ int cantidad;
+	FILE* pFile;
+
+	pFile = fopen("ARCHIVOS/Clientes.dat", "rb");
+
+	if (pFile == NULL) {
+            cantidad = 1;
+            idCliente=cantidad;
+            return;
+	}
+
+	fseek(pFile, 0, SEEK_END);
+	cantidad = ftell(pFile) / sizeof(Cliente);
+	fclose(pFile);
+	idCliente=cantidad+1;
+}
+
 
  void Cliente :: setDni(){
 int documento;
@@ -178,18 +196,22 @@ bool Cliente::leerDeDisco(int pos){
 
 void Cliente::mostrarRegistro(){
     setColor(rlutil:: LIGHTCYAN);
-    cout<<left;
-     cout<<setw(15);
-      cout<< nombre;
-      cout<<setw(15);
-      cout << apellido;
-      cout<<setw(14);
-      cout<<dni;
-      cout<<setw(15);
-      cout<<numTelefono;
-      cout<<endl;
-      setColor(rlutil:: LIGHTRED);
-      cout<<"........................................................."<<endl;
+    //cout<<left;
+    cout<<setw(2);
+    cout<<" ";
+    cout<<setw(7);
+    cout<< idCliente;
+    cout<<setw(15);
+    cout<< nombre;
+    cout<<setw(15);
+    cout << apellido;
+    cout<<setw(15);
+    cout<<dni;
+    cout<<setw(15);
+    cout<<numTelefono;
+    cout<<endl;
+    setColor(rlutil:: LIGHTRED);
+    cout<<".................................................................."<<endl;
 
 }
 
@@ -245,7 +267,7 @@ void menuClientes(){
 
 void altaCliente (){
 Cliente nuevoCliente;
-
+  nuevoCliente.setCodCliente();
   nuevoCliente.setDni();
   cin.ignore();
   nuevoCliente.setNombre();
@@ -254,7 +276,7 @@ Cliente nuevoCliente;
   nuevoCliente.setEstado(true);
 
   if (nuevoCliente.grabarEnDisco() ){
-       mensajeExito("Proveedor registrado");
+       mensajeExito("Cliente registrado");
         system("color 0F");
   }
   else{
@@ -273,9 +295,9 @@ system("cls");
   int pos = 0;
   setColor(rlutil:: LIGHTRED);
   cout<<left;
-  cout<<"---------------------------------------------------------"<<endl;
-  cout<<setw(15)<<"  NOMBRE    | "<<setw(15)<<"APELLIDO    |" <<setw(8)<<"  DNI    |"<<setw(15)<<"    TELEFONO    |"<<endl;
- cout<<"---------------------------------------------------------"<<endl;
+  cout<<"------------------------------------------------------------------"<<endl;
+  cout<<setw(7)<<"  ID   | "<<setw(15)<<"  NOMBRE    | "<<setw(15)<<"APELLIDO    |" <<setw(8)<<"  DNI    |"<<setw(15)<<"    TELEFONO    |"<<endl;
+  cout<<"------------------------------------------------------------------"<<endl;
 
 
 
@@ -309,16 +331,21 @@ if (pos == -1){
    return;
 }
 aBajar.leerDeDisco(pos);
+setColor(rlutil:: LIGHTRED);
 cout << endl << endl;
+cout<<left;
+cout<<"---------------------------------------------------------"<<endl;
+cout<<setw(15)<<"  NOMBRE    | "<<setw(15)<<"APELLIDO    |" <<setw(8)<<"  DNI    |"<<setw(15)<<"    TELEFONO    |"<<endl;
+cout<<"---------------------------------------------------------"<<endl;
 aBajar.mostrarRegistro();
-system("color 0F");
+setColor(rlutil:: WHITE);
 cout << endl << endl;
 cout<< "DESEA DAR DE BAJA EL REGISTRO? (S/N)";
 cin >> continuar;
 if(continuar=='S' || continuar == 's'){
 aBajar.setEstado(false);
 aBajar.grabarEnDisco(pos);
-   mensajeExito("CLIENTE DADO DE BAJA CON EXITO");
+    mensajeExito("CLIENTE DADO DE BAJA CON EXITO");
 }
 system ("cls");
 system("color 0F");
