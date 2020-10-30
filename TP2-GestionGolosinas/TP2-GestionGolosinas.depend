@@ -322,7 +322,7 @@
 
 1604017960 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\clientes.h
 
-1604097519 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
+1604100035 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -355,7 +355,7 @@
 	<cstring>
 	"Fecha.h"
 
-1604097794 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.cpp
+1604099821 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>

@@ -153,11 +153,11 @@ void realizarCompra(){
       compra nuevaCompra;
     IDGenerator identificador;
     Proveedor aVerificar;
-    char * nombre;
+    char  nombre [70];
 
     ID =  identificador.generateID();  /// Clase para generar el ID que va a linkear todos los registros de la compra.
     identificador.generatePos();
-    identificador.grabarEnDisco(); /// se guarda en archivoDeID
+
 
      cout<<"Ingrese codigo de proveedor: ";                              /// ANTES DE EMPEZAR SE VALIDA CODIGO DE PROVEEDOR
       cin.ignore();
@@ -214,6 +214,7 @@ void realizarCompra(){
                   productoExistente.leerDeDisco(pos);                /// si el producto ya existe se utiliza el objeto producto existente para actualizar el stock con la nueva cantidad ingresada
                   productoExistente.mostrarRegistro();
                   strcpy(nombre, productoExistente.getNombre());
+                  cout<<"pase el copy"<<endl;
                   cout<<" INGRESE LA CANTIDAD A COMPRAR: ";
                   cin>> cantidad;
                   productoExistente.actualizarStock(cantidad);
@@ -245,6 +246,7 @@ void realizarCompra(){
           cout<<"¿Desea seguir comprando? S/N "<<endl;
           cin>>seguir;
       } while(seguir== 's'|| seguir == 'S' );
+      identificador.grabarEnDisco();
 
 }
 
@@ -257,7 +259,7 @@ void mostrarCompras() {
       IDGenerator reg;
       int x = 0;
      while(reg.leerDisco(x) ) {
-            leerArchivoCompras(reg.getID(), reg.getPos());
+           leerArchivoCompras(reg.getID(), reg.getPos());
             x++;
       }
       system("pause");
@@ -281,12 +283,11 @@ void  leerArchivoCompras( int id, int pos){
             system("pause");
       }
 
-
+      setColor(rlutil:: RED);
       cout<<"------------------------------------------------"<<endl;
+      setColor(rlutil:: WHITE);
       fseek(puntero, sizeof(compra)* pos, SEEK_SET);
       while (fread(&reg, sizeof(compra), 1 , puntero)) {
-            cout<< "CODIGO COMPRA : "<<reg.getCodigo()<<endl;
-            cout<< "CODIGO IDGENERATOR "<<id<<endl;
            if(reg.getCodigo()==id){
                   if(bandera) {
                         cout<<"ID COMPRA: "<<reg.getCodigo()<<endl;
@@ -304,7 +305,6 @@ void  leerArchivoCompras( int id, int pos){
 
             else {
                   return;
-
             }
 
       }
