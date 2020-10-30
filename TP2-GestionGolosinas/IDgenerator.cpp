@@ -33,12 +33,22 @@ int IDGenerator :: generatePos(){
 }
 
 int IDGenerator :: generateID(){
-      int num;
-      srand(time(NULL));
-      num=(rand()%999)+1;
-      ID = num;
-     return num;
+       int autonumerico;
+	FILE* pFile;
 
+	pFile = fopen("ARCHIVOS/Compras.dat", "rb");
+
+	if (pFile == NULL) {
+            autonumerico= 1;
+            ID=autonumerico;
+            return ID;
+	}
+
+	fseek(pFile, 0, SEEK_END);
+	autonumerico = ftell(pFile) / sizeof(compra);
+	fclose(pFile);
+    ID=autonumerico+1;
+	return ID;
 }
 
 bool IDGenerator :: grabarEnDisco(){

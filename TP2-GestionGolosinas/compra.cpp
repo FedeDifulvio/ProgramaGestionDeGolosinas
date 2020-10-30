@@ -48,6 +48,7 @@ void compra:: setCodProveedor(){
 }
 
 
+
 void compra:: setCantidad(int valor){
       cantidad =  valor;
 }
@@ -157,6 +158,7 @@ void realizarCompra(){
       char seguir;
       bool bandera;
       char codProducto[7];
+      char opc;
       Articulo nuevoProducto(1);
       Articulo productoExistente;
       compra nuevaCompra;
@@ -174,6 +176,14 @@ void realizarCompra(){
             cin>>codProducto;
             pos = productoExistente.getPosicion(codProducto);
             if(pos == -1) {
+                cout<<"PRODUCTO NO REGISTRADO, DESEA DAR DE ALTA NUEVO PRODUCTO? (S/N)"<<endl;
+                 cin>>opc;
+
+                    if(opc =='n'||opc =='N'){
+                        system("cls");
+                        realizarCompra();
+                        return;
+                    }
                   cout<<" REGISTRO DE PRODUCTO NUEVO"<<endl;      /// Si el producto no existe, se hace el registro del producto.
                   nuevoProducto.setCodigo();
                   nuevoProducto.setNombre();
@@ -252,7 +262,8 @@ void mostrarCompras() {
 
 
 void  leerArchivoCompras( int id, int pos){
-      FILE *puntero;
+
+    FILE *puntero;
       compra reg ;
       bool bandera = true;
       puntero = fopen("ARCHIVOS/Compras.dat", "rb");
@@ -266,7 +277,7 @@ void  leerArchivoCompras( int id, int pos){
       cout<<"------------------------------------------------"<<endl;
       fseek(puntero, sizeof(compra)* pos, SEEK_SET);
       while (fread(&reg, sizeof(compra), 1 , puntero)) {
-            if(reg.getCodigo()==id){
+           if(reg.getCodigo()==id){
                   if(bandera) {
                         cout<<"ID COMPRA: "<<reg.getCodigo()<<endl;
                         cout<<"PROVEEDOR: "<<reg.getCodigoProveedor()<<endl;
