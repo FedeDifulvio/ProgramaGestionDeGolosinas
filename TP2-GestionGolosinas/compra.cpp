@@ -148,13 +148,11 @@ void realizarCompra(){
       char codProducto[7];
       char codProveedor [4];
       char opc;
-      Articulo nuevoProducto(1);
+      Articulo nuevoProducto(1); /// constructor para que el stock del articulo a registrar inice en cero hasta que se le acumule la cantidad a comprar.
       Articulo productoExistente;
       compra nuevaCompra;
     IDGenerator identificador;
     Proveedor aVerificar;
-
-
     char * nombre;
 
     ID =  identificador.generateID();  /// Clase para generar el ID que va a linkear todos los registros de la compra.
@@ -174,19 +172,20 @@ void realizarCompra(){
       }
 
     do{
-
-            cout<<"Ingrese código de producto a comprar: "<<endl;
-            cin>>codProducto;
-            pos = productoExistente.getPosicion(codProducto);
-            if(pos == -1) {
-                cout<<"PRODUCTO NO REGISTRADO, DESEA DAR DE ALTA NUEVO PRODUCTO? (S/N)"<<endl;
-                 cin>>opc;
-
-                  if(opc =='n'||opc =='N'){
-                        system("cls");
-                        realizarCompra();
-                        return;
+            do{
+                  cout<<"Ingrese código de producto a comprar: "<<endl;
+                  cin>>codProducto;
+                  pos = productoExistente.getPosicion(codProducto);
+                  opc = 'S';
+                  if(pos == -1) {
+                      cout<<"PRODUCTO NO REGISTRADO, DESEA DAR DE ALTA NUEVO PRODUCTO? (S/N)"<<endl;
+                      cin>>opc;
                   }
+
+            } while (opc =='n'||opc =='N') ;
+
+            if(pos == -1) {
+
                   cout<<" REGISTRO DE PRODUCTO NUEVO"<<endl;      /// Si el producto no existe, se hace el registro del producto.
                   nuevoProducto.setCodigo();
                   nuevoProducto.setNombre();
@@ -214,7 +213,7 @@ void realizarCompra(){
             else{
                   productoExistente.leerDeDisco(pos);                /// si el producto ya existe se utiliza el objeto producto existente para actualizar el stock con la nueva cantidad ingresada
                   productoExistente.mostrarRegistro();
-                  //strcpy(nombre, productoExistente.getNombre());
+                  strcpy(nombre, productoExistente.getNombre());
                   cout<<" INGRESE LA CANTIDAD A COMPRAR: ";
                   cin>> cantidad;
                   productoExistente.actualizarStock(cantidad);
@@ -250,6 +249,8 @@ void realizarCompra(){
 }
 
 
+
+
 void mostrarCompras() {
 
       system("cls");
@@ -262,6 +263,10 @@ void mostrarCompras() {
       system("pause");
       system("cls");
 }
+
+
+
+
 
 
 void  leerArchivoCompras( int id, int pos){
@@ -280,6 +285,8 @@ void  leerArchivoCompras( int id, int pos){
       cout<<"------------------------------------------------"<<endl;
       fseek(puntero, sizeof(compra)* pos, SEEK_SET);
       while (fread(&reg, sizeof(compra), 1 , puntero)) {
+            cout<< "CODIGO COMPRA : "<<reg.getCodigo()<<endl;
+            cout<< "CODIGO IDGENERATOR "<<id<<endl;
            if(reg.getCodigo()==id){
                   if(bandera) {
                         cout<<"ID COMPRA: "<<reg.getCodigo()<<endl;

@@ -17,7 +17,7 @@ int IDGenerator :: generatePos(){
       int cantidad;
 	FILE* pFile;
 
-	pFile = fopen("ARCHIVOS/archivoDelID.dat", "rb");
+	pFile = fopen("ARCHIVOS/archivoDeID.dat", "rb");
 
 	if (pFile == NULL) {
             cantidad = 0;
@@ -33,21 +33,20 @@ int IDGenerator :: generatePos(){
 }
 
 int IDGenerator :: generateID(){
-       int autonumerico;
+      int autonumerico ;
 	FILE* pFile;
 
-	pFile = fopen("ARCHIVOS/Compras.dat", "rb");
+	pFile = fopen("ARCHIVOS/archivoDeID.dat", "rb");
 
 	if (pFile == NULL) {
-            autonumerico= 1;
-            ID=autonumerico;
+            ID = 1;
             return ID;
 	}
 
 	fseek(pFile, 0, SEEK_END);
-	autonumerico = ftell(pFile) / sizeof(compra);
+	autonumerico = ftell(pFile) / sizeof(IDGenerator);
 	fclose(pFile);
-    ID=autonumerico+1;
+      ID = autonumerico+1;
 	return ID;
 }
 
