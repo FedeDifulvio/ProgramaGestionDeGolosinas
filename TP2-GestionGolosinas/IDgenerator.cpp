@@ -17,7 +17,7 @@ int IDGenerator :: generatePos(){
       int cantidad;
 	FILE* pFile;
 
-	pFile = fopen("ARCHIVOS/Compras.dat", "rb");
+	pFile = fopen("ARCHIVOS/archivoDelID.dat", "rb");
 
 	if (pFile == NULL) {
             cantidad = 0;
@@ -26,7 +26,7 @@ int IDGenerator :: generatePos(){
 	}
 
 	fseek(pFile, 0, SEEK_END);
-	cantidad = ftell(pFile) / sizeof(compra);
+	cantidad = ftell(pFile) / sizeof(IDGenerator);
 	fclose(pFile);
 	pos = cantidad;
 	return cantidad;

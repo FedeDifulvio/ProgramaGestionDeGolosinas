@@ -30,21 +30,8 @@ void compra:: setCodProducto( char cod [7]){
    strcpy(codProducto, cod);
 }
 
-void compra:: setCodProveedor(){
-      bool bandera;
-      Proveedor aVerificar;
-      cout<<"Ingrese codigo de proveedor: ";
-      cin.ignore();
-      cin.getline(codProveedor, 30);
-      bandera = aVerificar.validarCodProveedor(codProveedor);
-      while (bandera == true) {
-            mensajeError("ERROR, NO ENCONTRADO");
-            system("color 0F");
-            cout<<"Ingrese codigo de proveedor: ";
-            cin.getline(codProveedor, 30);
-            bandera = aVerificar.validarCodProveedor(codProveedor);
-      }
-
+void compra:: setCodProveedor(char cod[4]){
+      strcpy(codProveedor, cod);
 }
 
 
@@ -157,12 +144,15 @@ void realizarCompra(){
       int ID, pos, cantidad;
       char seguir;
       bool bandera;
+      bool verificado;
       char codProducto[7];
+      char codProveedor [4];
       char opc;
       Articulo nuevoProducto(1);
       Articulo productoExistente;
       compra nuevaCompra;
     IDGenerator identificador;
+    Proveedor aVerificar;
 
 
     char * nombre;
@@ -171,7 +161,20 @@ void realizarCompra(){
     identificador.generatePos();
     identificador.grabarEnDisco(); /// se guarda en archivoDeID
 
+     cout<<"Ingrese codigo de proveedor: ";                              /// ANTES DE EMPEZAR SE VALIDA CODIGO DE PROVEEDOR
+      cin.ignore();
+      cin.getline(codProveedor, 4);
+      verificado = aVerificar.validarCodProveedor(codProveedor);
+      while (verificado == true) {
+            mensajeError("ERROR, NO ENCONTRADO");
+            system("color 0F");
+            cout<<"Ingrese codigo de proveedor: ";
+            cin.getline(codProveedor, 4);
+            verificado = aVerificar.validarCodProveedor(codProveedor);
+      }
+
     do{
+
             cout<<"Ingrese código de producto a comprar: "<<endl;
             cin>>codProducto;
             pos = productoExistente.getPosicion(codProducto);
@@ -179,11 +182,11 @@ void realizarCompra(){
                 cout<<"PRODUCTO NO REGISTRADO, DESEA DAR DE ALTA NUEVO PRODUCTO? (S/N)"<<endl;
                  cin>>opc;
 
-                    if(opc =='n'||opc =='N'){
+                  if(opc =='n'||opc =='N'){
                         system("cls");
                         realizarCompra();
                         return;
-                    }
+                  }
                   cout<<" REGISTRO DE PRODUCTO NUEVO"<<endl;      /// Si el producto no existe, se hace el registro del producto.
                   nuevoProducto.setCodigo();
                   nuevoProducto.setNombre();
@@ -211,7 +214,7 @@ void realizarCompra(){
             else{
                   productoExistente.leerDeDisco(pos);                /// si el producto ya existe se utiliza el objeto producto existente para actualizar el stock con la nueva cantidad ingresada
                   productoExistente.mostrarRegistro();
-                  strcpy(nombre, productoExistente.getNombre());
+                  //strcpy(nombre, productoExistente.getNombre());
                   cout<<" INGRESE LA CANTIDAD A COMPRAR: ";
                   cin>> cantidad;
                   productoExistente.actualizarStock(cantidad);
@@ -224,10 +227,10 @@ void realizarCompra(){
             nuevaCompra.setCantidad(cantidad);       /// El registro total de compra se compone de todos los subregistros que tienen el mismo ID.
             nuevaCompra.setCodProducto(codProducto);
             nuevaCompra.setNombreProducto(nombre);
-            nuevaCompra.setCodProveedor();
+            nuevaCompra.setCodProveedor(codProveedor);
             bandera = nuevaCompra.grabarEnDisco();
             if(bandera) {
-                  mensajeExito("Producto agregado.");
+                  mensajeExito("Producto agregado a la compra.");
                   system("color 0F");
             }
             else{

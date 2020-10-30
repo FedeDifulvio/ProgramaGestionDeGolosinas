@@ -6,7 +6,7 @@ class compra{
      private:
      int codCompra; ///Codigo numerico.
      char  codProducto[7]; /// 3 numeros y 3 letras
-     char codProveedor[5]; /// 3 o cuatro letras
+     char codProveedor[4]; /// 3 o cuatro letras
      char nombreProducto[70];
      int cantidad;
      Fecha hoy;
@@ -17,7 +17,7 @@ class compra{
     void setCodigo(int);
     void setCodProducto( char [7]);
     void setCantidad(int);
-    void setCodProveedor();
+    void setCodProveedor(char [4]);
     void setNombreProducto( char [70]);
     void setTipoProducto();
     int getCodigo();

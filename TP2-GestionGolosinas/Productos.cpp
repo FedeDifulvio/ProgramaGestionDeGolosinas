@@ -48,9 +48,9 @@ char name[70];
       while(bandera==false){
 
       mensajeError("ERROR DE DATO");
-        system("color 0F");
-       cout<<"INGRESE NOMBRE DEL PRODUCTO:  ";
-       cin.getline(name, 70);
+      system("color 0F");
+      cout<<"INGRESE NOMBRE DEL PRODUCTO:  ";
+      cin.getline(name, 70);
        bandera=validarCadena(name);
       }
      strcpy(nombre, name);
