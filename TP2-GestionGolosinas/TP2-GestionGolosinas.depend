@@ -217,7 +217,7 @@
 
 1604013426 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\clientes.h
 
-1604017485 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
+1604113941 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -233,7 +233,7 @@
 	"Productos.h"
 	"IDgenerator.h"
 
-1604011706 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\compra.h
+1604113170 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\compra.h
 	"Fecha.h"
 
 1604011706 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\fecha.h
@@ -260,7 +260,7 @@
 	<cstring>
 	"funcionesGlobales.h"
 
-1604015980 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.cpp
+1604108679 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -284,7 +284,7 @@
 	"Clientes.h"
 	"compra.h"
 
-1604011706 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
+1604108679 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>

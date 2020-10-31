@@ -37,7 +37,8 @@ class compra{
 
 
 
-
+int obtenerPosicionIDcompra(int);
+void listarCompraID();
 void menuCompras();
 void realizarCompra();
 void mostrarCompras();

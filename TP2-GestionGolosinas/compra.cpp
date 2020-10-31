@@ -125,7 +125,7 @@ void menuCompras() {
                 break;
                 case 2: mostrarCompras();
                 break;
-                case 3:
+                case 3:listarCompraID();
 
 
                 break;
@@ -163,14 +163,17 @@ void realizarCompra(){
     identificador.generatePos();
 
 
-     cout<<"Ingrese codigo de proveedor: ";                              /// ANTES DE EMPEZAR SE VALIDA CODIGO DE PROVEEDOR
+      cout<<"INGRESE CODIGO DE PROVEEDOR: "<<endl;                              /// ANTES DE EMPEZAR SE VALIDA CODIGO DE PROVEEDOR
       cin.ignore();
       cin.getline(codProveedor, 4);
+
       verificado = aVerificar.validarCodProveedor(codProveedor);
       while (verificado == true) {
             mensajeError("ERROR, NO ENCONTRADO");
             system("color 0F");
-            cout<<"Ingrese codigo de proveedor: ";
+
+            cout<<"REINGRESE CODIGO DE PROVEEDOR: ";
+            setColor(rlutil:: LIGHTRED);
             cin.getline(codProveedor, 4);
             verificado = aVerificar.validarCodProveedor(codProveedor);
       }
@@ -189,8 +192,13 @@ void realizarCompra(){
             } while (opc =='n'||opc =='N') ;
 
             if(pos == -1) {
-
+                  setColor(rlutil:: LIGHTRED);
+                  cout<<"------------------------------"<<endl;
+                  setColor(rlutil:: WHITE);
                   cout<<" REGISTRO DE PRODUCTO NUEVO"<<endl;      /// Si el producto no existe, se hace el registro del producto.
+                  setColor(rlutil:: LIGHTRED);
+                  cout<<"------------------------------"<<endl;\
+                  setColor(rlutil:: WHITE);
                   nuevoProducto.setCodigo();
                   strcpy(codProducto, nuevoProducto.getCodigo());
                   nuevoProducto.setNombre();
@@ -292,47 +300,162 @@ void  leerArchivoCompras( int id, int pos){
             system("pause");
       }
 
-      setColor(rlutil:: RED);
-      cout<<"------------------------------------------------"<<endl;
+      setColor(rlutil:: WHITE);
+      cout<<"*******************************************************************************************************************"<<endl;
       setColor(rlutil:: WHITE);
       fseek(puntero, sizeof(compra)* pos, SEEK_SET);
 
       while (fread(&reg, sizeof(compra), 1 , puntero)) {
            if(reg.getCodigo()==id){
                   if(bandera) {
-                        cout<<"ID COMPRA: "<<reg.getCodigo()<<endl;
-                        cout<<"PROVEEDOR: "<<reg.getCodigoProveedor()<<endl;
-                        cout<<"FECHA ";
+                        setColor(rlutil:: LIGHTRED);
+                        cout<<left;
+                        cout<<"------------------------------------------------"<<endl;
+                        setColor(rlutil:: YELLOW);
+                        cout<<setw(7)<<"  ID COMPRA  | "<<setw(15)<<"  PROVEEDOR    | "<<setw(15)<<"    FECHA      |"<<endl;
+                        setColor(rlutil:: LIGHTRED);
+                        cout<<"------------------------------------------------"<<endl;
+                        setColor(rlutil:: YELLOW);
+                        cout<<"    ";
+                        cout<<setw(15);
+                        cout<<reg.getCodigo();
+                        cout<<setw(13);
+                        cout<<reg.getCodigoProveedor();
+
                         reg.getHoy().mostrarFecha();
+
+                        setColor(rlutil:: MAGENTA);
+                        cout<<left;
+                        cout<<endl;
+                        setColor(rlutil:: LIGHTRED);
+                        cout<<"------------------------------------------------------------------------"<<endl;
+                        setColor(rlutil:: CYAN);
+                        cout<<setw(7)<<"  ID PRODUCTO  | "<<setw(15)<<"  NOMBRE PRODUCTO   | "<<setw(15)<<"  CANTIDAD    |" <<setw(8)<<" PRECIO PARCIAL  |"<<endl;
+                        setColor(rlutil:: LIGHTRED);
+                        cout<<"------------------------------------------------------------------------"<<endl;
                         bandera = false;
                   }
-                  cout<<"*****************************"<<endl;
-                  cout<<"ID PRODUCTO: "<<reg.getCodProducto()<<endl;
-                  cout<<"NOMBRE PRODUCTO: "<<reg.getNombreProducto()<<endl;
-                  cout<<"CANTIDAD : "<<reg.getCantidad()<<endl;
-                  cout<<"PRECIO PARCIAL: "<<reg.getPrecioParcial()<<endl;
+
+
+                  setColor(rlutil:: MAGENTA);
+                  cout<<"    ";
+                  cout<<setw(18);
+                  cout<<reg.getCodProducto();
+                  cout<<setw(20);
+                  cout<<reg.getNombreProducto();
+                  cout<<setw(17);
+                  cout<<reg.getCantidad();
+                  cout<<setw(8);
+                  cout<<reg.getPrecioParcial();
+                  cout<<setw(0);
+                  cout<<endl;
+                  setColor(rlutil:: LIGHTRED);
+                  cout<<"------------------------------------------------------------------------"<<endl;
                   precioTotal += reg.getPrecioParcial();
+
 
 
             }
 
 
             else {
-            cout<< "PRECIO FINAL: " << precioTotal;
-            cout<< endl << endl;
+
+                  cout<<endl;
+                  cout<<left;
+                  setColor(rlutil:: LIGHTRED);
+                  cout<<"---------------------"<<endl;
+
+                  cout<<setw(15)<<" PRECIO FINAL: " << precioTotal <<" | "<<endl;
+                  setColor(rlutil:: LIGHTRED);
+                  cout<<"---------------------"<<endl;
+                  cout<<endl;
+                  cout<<endl;
+
+
+
+
                   return;
             }
 
 
       }
-      cout<< "PRECIO FINAL: " << precioTotal;
-      cout<< endl << endl;
-      bandera2 = false;
+
+      cout<<left;
+      cout<<endl;
+      cout<<endl;
+      setColor(rlutil:: LIGHTRED);
+      cout<<"---------------------"<<endl;
+      cout<<setw(15)<<" PRECIO FINAL: " << precioTotal <<" | "<<endl;
+      setColor(rlutil:: LIGHTRED);
+      cout<<"---------------------"<<endl;
+      cout<<endl;
+      cout<<endl;
+
+
+ setColor(rlutil:: WHITE);
+}
+
+
+int obtenerPosicionIDcompra(int id){
+int pos = 0;
+IDGenerator reg;
+FILE* pFile;
+
+pFile = fopen("ARCHIVOS/archivoDeID.dat", "rb");
+
+      if (pFile == NULL) {
+
+       return -1;
+
+      }
+
+      while(fread(&reg, sizeof(IDGenerator), 1, pFile)){
+            if (id==reg.getID()){
+               return pos;
+
+            }
+
+            pos++;
+
+      }
+
+ return -1;
+
+
+
 
 }
 
 
 
+
+
+
+
+
+void listarCompraID(){
+
+      system("cls");
+      IDGenerator reg;
+      int pos;
+      int id;
+      cout<<"INGRESAR ID DE LA COMPRA: ";
+      cin>>id;
+
+      pos=obtenerPosicionIDcompra(id);
+      reg.leerDisco(pos);
+      leerArchivoCompras(reg.getID(), reg.getPos());
+
+      system("pause");
+      system("cls");
+
+ setColor(rlutil:: WHITE);
+
+
+
+
+
+}
 
 
 
