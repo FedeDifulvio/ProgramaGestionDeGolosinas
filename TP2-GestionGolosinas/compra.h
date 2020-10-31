@@ -9,6 +9,7 @@ class compra{
      char codProveedor[4]; /// 3 o cuatro letras
      char nombreProducto[70];
      int cantidad;
+     int precioParcial;
      Fecha hoy;
 
 
@@ -20,12 +21,14 @@ class compra{
     void setCodProveedor(char [4]);
     void setNombreProducto( char [70]);
     void setTipoProducto();
+    void setPrecioParcial(int );
     int getCodigo();
     char * getCodProducto();
     int  getCantidad();
     char *  getCodigoProveedor();
     char *  getNombreProducto();
     int  getTipoProducto();
+    int getPrecioParcial();
     Fecha getHoy();
     bool grabarEnDisco();
 

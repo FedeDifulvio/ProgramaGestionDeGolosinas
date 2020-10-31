@@ -45,10 +45,12 @@ void compra :: setNombreProducto( char nombre[70]){
 
 }
 
-/*void compra :: setTipoProducto(){
-      cout<<"Ingrese tipo de producto: ";
-      cin.getline(tipoProducto, 50);
-}*/
+void compra::setPrecioParcial(int precio ){
+
+precioParcial = precio;
+
+
+}
 
  int  compra:: getCodigo(){
       return codCompra;
@@ -69,10 +71,11 @@ char *  compra :: getCodigoProveedor(){
 char *  compra:: getNombreProducto(){
       return nombreProducto;
 }
+int compra:: getPrecioParcial(){
 
-/*int   compra:: getTipoProducto(){
-      return tipoProducto;
-}*/
+return precioParcial;
+}
+
 
 
 bool compra:: grabarEnDisco(){
@@ -148,6 +151,7 @@ void realizarCompra(){
       char codProducto[7];
       char codProveedor [4];
       char opc;
+      int precioParcial = 0;
       Articulo nuevoProducto(1); /// constructor para que el stock del articulo a registrar inice en cero hasta que se le acumule la cantidad a comprar.
       Articulo productoExistente;
       compra nuevaCompra;
@@ -192,6 +196,7 @@ void realizarCompra(){
                   nuevoProducto.setNombre();
                   nuevoProducto.setTipo();
                   nuevoProducto.setPrecio();
+                  precioParcial = nuevoProducto.getPrecio();
                   strcpy(nombre, nuevoProducto.getNombre());
                   cout<<"Ingrese cantidad a comprar:  ";
                   cin>> cantidad;
@@ -217,6 +222,7 @@ void realizarCompra(){
                   strcpy(nombre, productoExistente.getNombre());
                   cout<<" INGRESE LA CANTIDAD A COMPRAR: ";
                   cin>> cantidad;
+                  precioParcial = productoExistente.getPrecio();
                   productoExistente.actualizarStock(cantidad);
                   productoExistente.grabarEnDisco(pos);
 
@@ -228,6 +234,7 @@ void realizarCompra(){
             nuevaCompra.setCodProducto(codProducto);
             nuevaCompra.setNombreProducto(nombre);
             nuevaCompra.setCodProveedor(codProveedor);
+            nuevaCompra.setPrecioParcial(precioParcial*cantidad);
             bandera = nuevaCompra.grabarEnDisco();
             if(bandera) {
                   mensajeExito("Producto agregado a la compra.");
@@ -246,12 +253,8 @@ void realizarCompra(){
           cout<<"¿Desea seguir comprando? S/N "<<endl;
           cin>>seguir;
       } while(seguir== 's'|| seguir == 'S' );
-      bool t;
-      t = identificador.grabarEnDisco();
-      if(t == false) {
-            mensajeError("error al guardar el IDDD");
-      }
-
+      identificador.grabarEnDisco();
+      system("cls");
 
 }
 
@@ -277,10 +280,11 @@ void mostrarCompras() {
 
 
 void  leerArchivoCompras( int id, int pos){
-
+ int precioTotal = 0;
     FILE *puntero;
       compra reg ;
       bool bandera = true;
+      bool bandera2 = true;
       puntero = fopen("ARCHIVOS/Compras.dat", "rb");
       if(puntero == NULL) {
 
@@ -292,6 +296,7 @@ void  leerArchivoCompras( int id, int pos){
       cout<<"------------------------------------------------"<<endl;
       setColor(rlutil:: WHITE);
       fseek(puntero, sizeof(compra)* pos, SEEK_SET);
+
       while (fread(&reg, sizeof(compra), 1 , puntero)) {
            if(reg.getCodigo()==id){
                   if(bandera) {
@@ -305,16 +310,25 @@ void  leerArchivoCompras( int id, int pos){
                   cout<<"ID PRODUCTO: "<<reg.getCodProducto()<<endl;
                   cout<<"NOMBRE PRODUCTO: "<<reg.getNombreProducto()<<endl;
                   cout<<"CANTIDAD : "<<reg.getCantidad()<<endl;
+                  cout<<"PRECIO PARCIAL: "<<reg.getPrecioParcial()<<endl;
+                  precioTotal += reg.getPrecioParcial();
+
+
             }
 
+
             else {
+            cout<< "PRECIO FINAL: " << precioTotal;
+            cout<< endl << endl;
                   return;
             }
 
-      }
 
-      system("pause");
-      system("cls");
+      }
+      cout<< "PRECIO FINAL: " << precioTotal;
+      cout<< endl << endl;
+      bandera2 = false;
+
 }
 
 

@@ -104,7 +104,7 @@
 
 1603907759 e:\documentos\00 utn\2∫\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.h
 
-1603493772 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.cpp
+1603936354 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -112,9 +112,9 @@
 	<cstring>
 	"funcionesGlobales.h"
 
-1603491294 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.h
+1603936354 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.h
 
-1603507028 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
+1603936354 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -122,8 +122,8 @@
 	<cstring>
 	"rlutil.h"
 	"Proveedores.h"
-	"Validaciones.h"
 	"Clientes.h"
+	"compra.h"
 
 1603072795 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\rlutil.h
 	<iostream>
@@ -139,11 +139,11 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1603502299 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.h
+1603936354 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.h
 
 1603331093 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.h
 
-1603499991 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.cpp
+1604020974 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -152,7 +152,6 @@
 	<iomanip>
 	"rlutil.h"
 	"Proveedores.h"
-	"Validaciones.h"
 	"funcionesGlobales.h"
 
 1603331093 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.cpp
@@ -163,7 +162,7 @@
 	<cstring>
 	"rlutil.h"
 
-1603505056 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\clientes.cpp
+1604020974 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\clientes.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -171,13 +170,12 @@
 	<cstring>
 	<iomanip>
 	"rlutil.h"
-	"Validaciones.h"
 	"funcionesGlobales.h"
 	"Clientes.h"
 
-1603504867 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\clientes.h
+1604020974 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\clientes.h
 
-1603506787 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
+1604020974 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -185,11 +183,10 @@
 	<cstring>
 	<iomanip>
 	"rlutil.h"
-	"Validaciones.h"
 	"funcionesGlobales.h"
 	"Productos.h"
 
-1603506787 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\productos.h
+1603936354 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\productos.h
 
 1604014239 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\clientes.cpp
 	<iostream>
@@ -378,4 +375,48 @@
 	"rlutil.h"
 	"funcionesGlobales.h"
 	"Productos.h"
+
+1603936354 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\fecha.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"Fecha.h"
+
+1603936354 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\fecha.h
+
+1604104744 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"rlutil.h"
+	"funcionesGlobales.h"
+	"Clientes.h"
+	"funcionesGlobales.h"
+	"compra.h"
+	"IDgenerator.h"
+
+1604106892 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\compra.h
+	"Fecha.h"
+
+1603936354 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.h
+
+1604108198 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	<iomanip>
+	"rlutil.h"
+	"funcionesGlobales.h"
+	"Clientes.h"
+	"funcionesGlobales.h"
+	"compra.h"
+	"Fecha.h"
+	"Proveedores.h"
+	"Productos.h"
+	"IDgenerator.h"
 
