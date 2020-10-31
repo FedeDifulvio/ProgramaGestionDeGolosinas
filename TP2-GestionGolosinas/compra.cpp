@@ -188,6 +188,7 @@ void realizarCompra(){
 
                   cout<<" REGISTRO DE PRODUCTO NUEVO"<<endl;      /// Si el producto no existe, se hace el registro del producto.
                   nuevoProducto.setCodigo();
+                  strcpy(codProducto, nuevoProducto.getCodigo());
                   nuevoProducto.setNombre();
                   nuevoProducto.setTipo();
                   nuevoProducto.setPrecio();
@@ -214,7 +215,6 @@ void realizarCompra(){
                   productoExistente.leerDeDisco(pos);                /// si el producto ya existe se utiliza el objeto producto existente para actualizar el stock con la nueva cantidad ingresada
                   productoExistente.mostrarRegistro();
                   strcpy(nombre, productoExistente.getNombre());
-                  cout<<"pase el copy"<<endl;
                   cout<<" INGRESE LA CANTIDAD A COMPRAR: ";
                   cin>> cantidad;
                   productoExistente.actualizarStock(cantidad);
@@ -246,7 +246,12 @@ void realizarCompra(){
           cout<<"¿Desea seguir comprando? S/N "<<endl;
           cin>>seguir;
       } while(seguir== 's'|| seguir == 'S' );
-      identificador.grabarEnDisco();
+      bool t;
+      t = identificador.grabarEnDisco();
+      if(t == false) {
+            mensajeError("error al guardar el IDDD");
+      }
+
 
 }
 
@@ -300,7 +305,6 @@ void  leerArchivoCompras( int id, int pos){
                   cout<<"ID PRODUCTO: "<<reg.getCodProducto()<<endl;
                   cout<<"NOMBRE PRODUCTO: "<<reg.getNombreProducto()<<endl;
                   cout<<"CANTIDAD : "<<reg.getCantidad()<<endl;
-
             }
 
             else {
