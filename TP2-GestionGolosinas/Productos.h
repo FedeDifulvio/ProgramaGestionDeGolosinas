@@ -28,4 +28,9 @@ public:
     int getPosicion(char[]);
 };
 
+void agruparTipo();
+void stockMayorValor();
+void stockMenorValor();
+void menuProductos();
+void listarTodosProductos();
 #endif // PRODUCTOS_H_INCLUDED

@@ -10,7 +10,7 @@
  #include "Proveedores.h"
  #include "Clientes.h"
  #include "compra.h"
-
+ #include "Productos.h"
 
 int main(){
       setlocale(LC_ALL, "spanish");
@@ -58,7 +58,7 @@ int main(){
                   case 3: menuClientes();
 
                   break;
-                  case 4:
+                  case 4: menuProductos();
 
                   break;
                   case 0: return 0;

@@ -420,3 +420,122 @@
 	"Productos.h"
 	"IDgenerator.h"
 
+1604530412 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\clientes.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	<iomanip>
+	"rlutil.h"
+	"funcionesGlobales.h"
+	"Clientes.h"
+
+1604530412 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1604530412 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.h
+
+1604530412 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\clientes.h
+
+1604530412 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	<iomanip>
+	"rlutil.h"
+	"funcionesGlobales.h"
+	"Clientes.h"
+	"funcionesGlobales.h"
+	"compra.h"
+	"Fecha.h"
+	"Proveedores.h"
+	"Productos.h"
+	"IDgenerator.h"
+
+1604530412 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\compra.h
+	"Fecha.h"
+
+1604530412 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\fecha.h
+
+1604530412 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.h
+
+1604533832 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\productos.h
+
+1604530412 c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.h
+
+1604530412 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\fecha.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"Fecha.h"
+
+1604530412 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"funcionesGlobales.h"
+
+1604530412 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"rlutil.h"
+	"funcionesGlobales.h"
+	"Clientes.h"
+	"funcionesGlobales.h"
+	"compra.h"
+	"IDgenerator.h"
+
+1604530916 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	"rlutil.h"
+	"Proveedores.h"
+	"Clientes.h"
+	"compra.h"
+	"Productos.h"
+
+1604532997 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	<iomanip>
+	"rlutil.h"
+	"funcionesGlobales.h"
+	"Productos.h"
+
+1604530412 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\tp 2 lab\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	<iomanip>
+	"rlutil.h"
+	"Proveedores.h"
+	"funcionesGlobales.h"
+

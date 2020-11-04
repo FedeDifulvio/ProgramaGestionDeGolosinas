@@ -102,7 +102,7 @@ int Articulo::getStock(){
 return stock;
 }
 const char * Articulo::getNombreTipo(){
-
+    const char* vacio=" ";
     const char* bombon = "bombon";
     const char* chocolate = "chocolate";
     const char* alfajor = "alfajor";
@@ -121,6 +121,8 @@ const char * Articulo::getNombreTipo(){
           break;
           case 4:return caramelos;
 
+          break;
+          default: return vacio;
           break;
 
 
@@ -173,21 +175,25 @@ FILE *puntero;
 }
 void Articulo::mostrarRegistro(){
 
-setColor(rlutil:: GREEN);
+if (stock<10){setColor(rlutil:: RED);}
+else{setColor(rlutil:: GREEN);}
+
     cout<<left;
+    cout<<"    ";
     cout<<setw(15);
     cout<< codigo;
-    cout<<setw(15);
-    cout << nombre;
-    cout<<setw(5);
+    cout<<setw(17);
+    cout <<nombre;
+    cout<<setw(18);
+    cout<<getNombreTipo();
+    cout<<setw(9);
     cout<<precio;
-    cout<<setw(5);
+    cout<<setw(8);
     cout<<stock;
     cout<<setw(5);
-    cout<<codTipo;
     cout<<endl;
     setColor(rlutil:: BLUE);
-    cout<<"........................................................."<<endl;
+    cout<<".........................................................................."<<endl;
 
 }
 
@@ -203,3 +209,209 @@ int pos = 0;
     return -1;
 }
 
+
+
+
+void menuProductos() {
+
+      int opc;
+      while(true){
+
+            gotoxy (50, 3);
+            cout<<"MENÚ PRODUCTOS"<<endl;
+            gotoxy(47, 4);
+            cout<<"------------------------"<<endl;
+            gotoxy(50, 5);
+            cout<<"1) LISTAR TODOS LOS PRODUCTOS "<<endl;
+            gotoxy(50, 6);
+            cout<<"2) LISTAR STOCK MENOR A VALOR INGRESADO  "<<endl;
+            gotoxy(50, 7);
+            cout<<"3) LISTAR STOCK MAYOR A VALOR INGRESADO "<<endl;
+            gotoxy(50, 8);
+            cout<<"4) LISTAR STOCK DE MAYOR A MENOR "<<endl;
+            gotoxy(50, 9);
+            cout<<"5) LISTAR STOCK DE MENOR A MAYOR "<<endl;
+            gotoxy(50, 10);
+            cout<<"6) LISTAR POR TIPO "<<endl;
+            gotoxy(47, 11);
+            cout<<"------------------------"<<endl;
+            gotoxy(48, 13);
+            cout<<"0) VOLVER AL MENÚ "<<endl;
+            gotoxy(50, 16);
+            cout<<"INGRESE UNA OPCIÓN: "<<endl;
+            gotoxy(70, 16);
+            cin>>opc;
+            system("cls");
+
+            switch(opc){
+               case 1:listarTodosProductos();
+
+
+                break;
+                case 2:stockMenorValor();
+                break;
+                case 3:stockMayorValor();
+                break;
+                case 4://ordenarMayorMenor();
+                break;
+                case 5://ordenarMenorMayor();
+                break;
+                case 6:agruparTipo();
+
+
+                break;
+                case 0: return ;
+                break;
+                default: cout<<"OPCION NO VALIDA."<<endl;
+                break;
+            }
+
+      }
+
+
+
+ }
+
+
+
+
+void listarTodosProductos(){
+
+      system("cls");
+      Articulo reg;
+      int x = 0;
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: CYAN);
+            cout<<setw(7)<<"  ID PRODUCTO  | "<<setw(10)<<"    NOMBRE    | "<<setw(7)<<"      TIPO      |" <<setw(8)<<"  PRECIO  |"<<setw(8)<<"  CANTIDAD  |"<<endl;
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: YELLOW);
+
+      while(reg.leerDeDisco(x) ) {
+      reg.mostrarRegistro();
+      x++;
+      }
+      setColor(rlutil:: WHITE);
+      system("pause");
+      system("cls");
+}
+
+
+void stockMenorValor(){
+int valor;
+Articulo reg;
+
+system("cls");
+
+cout<<"INGRESAR VALOR A FILTRAR (MENOR A): ";
+cin>>valor;
+
+      int x = 0;
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: CYAN);
+            cout<<setw(7)<<"  ID PRODUCTO  | "<<setw(10)<<"    NOMBRE    | "<<setw(7)<<"      TIPO      |" <<setw(8)<<"  PRECIO  |"<<setw(8)<<"  CANTIDAD  |"<<endl;
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: YELLOW);
+
+      while(reg.leerDeDisco(x) ) {
+            if(reg.getStock()<valor){
+
+             reg.mostrarRegistro();
+
+            }
+
+       x++;
+      }
+      setColor(rlutil:: WHITE);
+      system("pause");
+      system("cls");
+}
+
+void stockMayorValor(){
+int valor;
+Articulo reg;
+
+system("cls");
+
+cout<<"INGRESAR VALOR A FILTRAR (MAYOR A): ";
+cin>>valor;
+
+      int x = 0;
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: CYAN);
+            cout<<setw(7)<<"  ID PRODUCTO  | "<<setw(10)<<"    NOMBRE    | "<<setw(7)<<"      TIPO      |" <<setw(8)<<"  PRECIO  |"<<setw(8)<<"  CANTIDAD  |"<<endl;
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: YELLOW);
+
+      while(reg.leerDeDisco(x) ) {
+            if(reg.getStock()>valor){
+
+             reg.mostrarRegistro();
+
+            }
+
+       x++;
+      }
+      setColor(rlutil:: WHITE);
+      system("pause");
+      system("cls");
+
+
+}
+
+void agruparTipo(){
+int tipo;
+Articulo reg;
+
+system("cls");
+cout<<"CATEGORIAS";
+cout<<endl;
+cout<<"1)Bombon";
+cout<<endl;
+cout<<"2)Chocolate";
+cout<<endl;
+cout<<"3)Alfajor";
+cout<<endl;
+cout<<"4)Caramelo";
+cout<<endl;
+cout<<"INGRESE NRO TIPO A BUSCAR: ";
+cin>>tipo;
+system("cls");
+
+
+      int x = 0;
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: CYAN);
+            cout<<setw(7)<<"  ID PRODUCTO  | "<<setw(10)<<"    NOMBRE    | "<<setw(7)<<"      TIPO      |" <<setw(8)<<"  PRECIO  |"<<setw(8)<<"  CANTIDAD  |"<<endl;
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: YELLOW);
+
+      while(reg.leerDeDisco(x) ) {
+            if(reg.getTipo()==tipo){
+
+             reg.mostrarRegistro();
+
+            }
+
+
+       x++;
+      }
+      setColor(rlutil:: WHITE);
+      system("pause");
+      system("cls");
+
+
+
+
+
+
+
+
+}
