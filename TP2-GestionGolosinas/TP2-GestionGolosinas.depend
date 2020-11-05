@@ -114,7 +114,7 @@
 
 1603936354 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\funcionesglobales.h
 
-1603936354 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
+1604534398 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -124,6 +124,7 @@
 	"Proveedores.h"
 	"Clientes.h"
 	"compra.h"
+	"Productos.h"
 
 1603072795 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\rlutil.h
 	<iostream>
@@ -175,7 +176,7 @@
 
 1604020974 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\clientes.h
 
-1604020974 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
+1604537684 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -186,7 +187,7 @@
 	"funcionesGlobales.h"
 	"Productos.h"
 
-1603936354 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\productos.h
+1604537066 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\productos.h
 
 1604014239 source:c:\users\sebastian\desktop\facultad\1er a—o programacion\segundo cuatri\lab 2\programagestiondegolosinas\tp2-gestiongolosinas\clientes.cpp
 	<iostream>
@@ -399,12 +400,12 @@
 	"compra.h"
 	"IDgenerator.h"
 
-1604106892 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\compra.h
+1604530151 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\compra.h
 	"Fecha.h"
 
 1603936354 c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.h
 
-1604108198 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
+1604530151 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>

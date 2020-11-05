@@ -33,4 +33,9 @@ void stockMayorValor();
 void stockMenorValor();
 void menuProductos();
 void listarTodosProductos();
+void ordenarProductosStock();
+int cantidadProductos();
+void ordenarMayor_Menor(Articulo *, int );
+void ordenarMenor_Mayor(Articulo *, int );
+
 #endif // PRODUCTOS_H_INCLUDED

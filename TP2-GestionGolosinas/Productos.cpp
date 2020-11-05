@@ -228,11 +228,9 @@ void menuProductos() {
             gotoxy(50, 7);
             cout<<"3) LISTAR STOCK MAYOR A VALOR INGRESADO "<<endl;
             gotoxy(50, 8);
-            cout<<"4) LISTAR STOCK DE MAYOR A MENOR "<<endl;
+            cout<<"4) PRODUCTOS ORDENADOS POR CANTIDAD DE STOCK "<<endl;
             gotoxy(50, 9);
-            cout<<"5) LISTAR STOCK DE MENOR A MAYOR "<<endl;
-            gotoxy(50, 10);
-            cout<<"6) LISTAR POR TIPO "<<endl;
+            cout<<"5) LISTAR POR TIPO"<<endl;
             gotoxy(47, 11);
             cout<<"------------------------"<<endl;
             gotoxy(48, 13);
@@ -252,13 +250,9 @@ void menuProductos() {
                 break;
                 case 3:stockMayorValor();
                 break;
-                case 4://ordenarMayorMenor();
+                case 4:ordenarProductosStock();
                 break;
-                case 5://ordenarMenorMayor();
-                break;
-                case 6:agruparTipo();
-
-
+                case 5:agruparTipo();
                 break;
                 case 0: return ;
                 break;
@@ -407,11 +401,114 @@ system("cls");
       system("pause");
       system("cls");
 
+}
 
 
+void ordenarProductosStock(){
+  int cantidad = cantidadProductos();
+  Articulo *vec;
+  Articulo reg;
+  int opc;
+  int x=0;
+  vec = new Articulo[cantidad];
 
+  while(reg.leerDeDisco(x)){
+         vec[x]=reg;
+           x++;
 
+      }
+cout << "TIPOS DE ORDENAMIENTO: 1= mayor a menor.  2 = menor a mayor"<< endl;
+cout << "INGRESE UNA OPCION: ";
+cin >> opc;
+system("cls");
+
+if (opc==1){
+
+ordenarMayor_Menor(vec, cantidad);
+}
+else{
+      if(opc==2){
+      ordenarMenor_Mayor(vec, cantidad);
+      }
+      else{
+            mensajeError("OPCION INVÁLIDA");
+            system("color 0F");
+            system("cls");
+            return;
+      }
+}
+setColor(rlutil:: LIGHTRED);
+      cout<<"--------------------------------------------------------------------------"<<endl;
+      setColor(rlutil:: CYAN);
+      cout<<setw(7)<<"  ID PRODUCTO  | "<<setw(10)<<"    NOMBRE    | "<<setw(7)<<"      TIPO      |" <<setw(8)<<"  PRECIO  |"<<setw(8)<<"  CANTIDAD  |"<<endl;
+      setColor(rlutil:: LIGHTRED);
+      cout<<"--------------------------------------------------------------------------"<<endl;
+      setColor(rlutil:: YELLOW);
+
+for(x=0;x<cantidad;x++){
+      vec[x].mostrarRegistro();
+}
+
+delete (vec);
+setColor(rlutil:: WHITE);
+system("pause");
+system("cls");
 
 
 
 }
+
+int cantidadProductos(){
+
+   int cantidad;
+	FILE* pFile;
+
+	pFile = fopen("ARCHIVOS/Productos.dat", "rb");
+
+	if (pFile == NULL) {
+            cantidad = 0;
+            return cantidad;
+	}
+
+	fseek(pFile, 0, SEEK_END);
+	cantidad = ftell(pFile) / sizeof(Articulo);
+	fclose(pFile);
+	return cantidad;
+
+}
+
+void ordenarMayor_Menor(Articulo *vec, int cant){
+int i, j, posmin;
+   Articulo aux;
+  for(i=0;i<cant-1;i++){
+      posmin=i;
+      for(j=i+1;j<cant;j++){
+
+        if(vec[posmin].getStock()<vec[j].getStock()) posmin=j;
+      }
+      aux=vec[i];
+      vec[i]=vec[posmin];
+      vec[posmin]=aux;
+    }
+
+}
+
+void ordenarMenor_Mayor(Articulo *vec, int cant){
+int i, j, posmin;
+   Articulo aux;
+  for(i=0;i<cant-1;i++){
+      posmin=i;
+      for(j=i+1;j<cant;j++){
+
+        if(vec[posmin].getStock()>vec[j].getStock()) posmin=j;
+      }
+      aux=vec[i];
+      vec[i]=vec[posmin];
+      vec[posmin]=aux;
+    }
+
+
+}
+
+
+
