@@ -103,7 +103,7 @@ void menuCompras() {
             gotoxy(47, 4);
             cout<<"------------------------"<<endl;
             gotoxy(50, 5);
-            cout<<"1)  REALIZAR COMPRA "<<endl;
+            cout<<"1) REALIZAR COMPRA "<<endl;
             gotoxy(50, 6);
             cout<<"2) LISTAR COMPRAS  "<<endl;
             gotoxy(50, 7);
@@ -152,10 +152,9 @@ void realizarCompra(){
       char codProveedor [4];
       char opc;
       int precioParcial = 0;
-      Articulo nuevoProducto(1); /// constructor para que el stock del articulo a registrar inice en cero hasta que se le acumule la cantidad a comprar.
       Articulo productoExistente;
       compra nuevaCompra;
-    IDGenerator identificador;
+    IDGenerator identificador, reg;
     Proveedor aVerificar;
     char  nombre [70];
 
@@ -173,7 +172,6 @@ void realizarCompra(){
             system("color 0F");
 
             cout<<"REINGRESE CODIGO DE PROVEEDOR: ";
-            setColor(rlutil:: LIGHTRED);
             cin.getline(codProveedor, 4);
             verificado = aVerificar.validarCodProveedor(codProveedor);
       }
@@ -199,6 +197,7 @@ void realizarCompra(){
                   setColor(rlutil:: LIGHTRED);
                   cout<<"------------------------------"<<endl;\
                   setColor(rlutil:: WHITE);
+                  Articulo nuevoProducto(1);                    /// constructor para que el stock del articulo a registrar inice en cero hasta que se le acumule la cantidad a comprar.
                   nuevoProducto.setCodigo();
                   strcpy(codProducto, nuevoProducto.getCodigo());
                   nuevoProducto.setNombre();
@@ -225,6 +224,14 @@ void realizarCompra(){
 
             }
             else{
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: CYAN);
+            cout<<setw(7)<<"  ID PRODUCTO  | "<<setw(10)<<"    NOMBRE    | "<<setw(7)<<"      TIPO      |" <<setw(8)<<"  PRECIO  |"<<setw(8)<<"  CANTIDAD  |"<<endl;
+            setColor(rlutil:: LIGHTRED);
+            cout<<"--------------------------------------------------------------------------"<<endl;
+            setColor(rlutil:: YELLOW);
+
                   productoExistente.leerDeDisco(pos);                /// si el producto ya existe se utiliza el objeto producto existente para actualizar el stock con la nueva cantidad ingresada
                   productoExistente.mostrarRegistro();
                   strcpy(nombre, productoExistente.getNombre());
@@ -235,8 +242,6 @@ void realizarCompra(){
                   productoExistente.grabarEnDisco(pos);
 
             }
-
-
             nuevaCompra.setCodigo(ID);                      ///  en el archivo de compras, se guarda el subregistro de la compra (un subregistro es la compra de un producto particular).
             nuevaCompra.setCantidad(cantidad);       /// El registro total de compra se compone de todos los subregistros que tienen el mismo ID.
             nuevaCompra.setCodProducto(codProducto);
@@ -263,6 +268,17 @@ void realizarCompra(){
       } while(seguir== 's'|| seguir == 'S' );
       identificador.grabarEnDisco();
       system("cls");
+
+      pos=obtenerPosicionIDcompra(ID);
+      reg.leerDisco(pos);
+      leerArchivoCompras(reg.getID(), reg.getPos());
+
+      system("pause");
+      system("cls");
+
+ setColor(rlutil:: WHITE);
+
+
 
 }
 
@@ -346,7 +362,7 @@ void  leerArchivoCompras( int id, int pos){
                   cout<<setw(17);
                   cout<<reg.getCantidad();
                   cout<<setw(8);
-                  cout<<reg.getPrecioParcial();
+                  cout<<reg.getPrecioParcial()<<"$";
                   cout<<setw(0);
                   cout<<endl;
                   setColor(rlutil:: LIGHTRED);
@@ -363,11 +379,11 @@ void  leerArchivoCompras( int id, int pos){
                   cout<<endl;
                   cout<<left;
                   setColor(rlutil:: LIGHTRED);
-                  cout<<"---------------------"<<endl;
+                  cout<<"----------------------"<<endl;
 
-                  cout<<setw(15)<<" PRECIO FINAL: " << precioTotal <<" | "<<endl;
+                  cout<<setw(15)<<" PRECIO FINAL: " << precioTotal <<" $| "<<endl;
                   setColor(rlutil:: LIGHTRED);
-                  cout<<"---------------------"<<endl;
+                  cout<<"----------------------"<<endl;
                   cout<<endl;
                   cout<<endl;
 
@@ -384,10 +400,10 @@ void  leerArchivoCompras( int id, int pos){
       cout<<endl;
       cout<<endl;
       setColor(rlutil:: LIGHTRED);
-      cout<<"---------------------"<<endl;
-      cout<<setw(15)<<" PRECIO FINAL: " << precioTotal <<" | "<<endl;
+      cout<<"----------------------"<<endl;
+      cout<<setw(15)<<" PRECIO FINAL: " << precioTotal <<" $| "<<endl;
       setColor(rlutil:: LIGHTRED);
-      cout<<"---------------------"<<endl;
+      cout<<"----------------------"<<endl;
       cout<<endl;
       cout<<endl;
 

@@ -56,11 +56,11 @@ char name[70];
      strcpy(nombre, name);
 }
 void Articulo::setPrecio(){
-    float precioProducto;
+ float precioProducto;
  cout << "INGRESE PRECIO DEL PRODUCTO: ";
  cin >> precioProducto;
 
- while(precio <= 0){
+ while(precioProducto <= 0){
     mensajeError("ERROR DE DATO");
     system("color 0F");
     cout << "REINGRESE PRECIO DEL PRODUCTO: ";
@@ -74,7 +74,7 @@ void Articulo::setTipo(){
  cout << "INGRESE NRO DEL TIPO DE PRODUCTO: ";
  cin >> tipoProducto;
 
- while(precio <= 0){
+ while(tipoProducto <= 0){
     mensajeError("ERROR DE DATO");
     system("color 0F");
     cout << "INGRESE NRO DEL TIPO DE PRODUCTO: ";
@@ -184,12 +184,12 @@ else{setColor(rlutil:: GREEN);}
     cout<< codigo;
     cout<<setw(17);
     cout <<nombre;
-    cout<<setw(18);
+    cout<<setw(16);
     cout<<getNombreTipo();
-    cout<<setw(9);
+    cout<<setw(5);
     cout<<precio;
-    cout<<setw(8);
-    cout<<stock;
+    cout<<setw(6);
+    cout<<"$"<<stock;
     cout<<setw(5);
     cout<<endl;
     setColor(rlutil:: BLUE);
