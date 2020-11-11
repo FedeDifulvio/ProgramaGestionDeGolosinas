@@ -298,7 +298,7 @@ Articulo reg;
 
 system("cls");
 
-cout<<"INGRESAR VALOR A FILTRAR (MENOR A): ";
+cout<<"INGRESAR VALOR A FILTRAR (MENOR/IGUAL A): ";
 cin>>valor;
 
       int x = 0;
@@ -311,7 +311,7 @@ cin>>valor;
             setColor(rlutil:: YELLOW);
 
       while(reg.leerDeDisco(x) ) {
-            if(reg.getStock()<valor){
+            if(reg.getStock()<=valor){
 
              reg.mostrarRegistro();
 
@@ -330,7 +330,7 @@ Articulo reg;
 
 system("cls");
 
-cout<<"INGRESAR VALOR A FILTRAR (MAYOR A): ";
+cout<<"INGRESAR VALOR A FILTRAR (MAYOR/IGUAL A): ";
 cin>>valor;
 
       int x = 0;
@@ -343,7 +343,7 @@ cin>>valor;
             setColor(rlutil:: YELLOW);
 
       while(reg.leerDeDisco(x) ) {
-            if(reg.getStock()>valor){
+            if(reg.getStock()>=valor){
 
              reg.mostrarRegistro();
 
