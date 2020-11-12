@@ -86,6 +86,35 @@ void Articulo::actualizarStock( int cant){
 
       stock += cant;
 }
+
+bool Articulo::descontarStock(int cant, int pos){
+
+FILE* pFile;
+
+
+pFile = fopen("ARCHIVOS/Productos.dat", "rb+");
+
+      if (pFile == NULL) {
+            mensajeError("ERROR DE ARCHIVO");
+            system("color 0F");
+            return false;
+      }
+fseek(pFile, pos*sizeof(Articulo), 0);
+fread(this,sizeof(Articulo),1,pFile);
+
+      if((this->stock-cant)>=0){
+         this->stock = this->stock - cant;
+         this->grabarEnDisco(pos);
+         fclose(pFile);
+         return true;
+      }
+mensajeError("ERROR, STOCK INSUFICIENTE");
+system("color 0F");
+fclose(pFile);
+return false;
+
+}
+
 char *Articulo::getCodigo(){
 return codigo;
 }
@@ -196,6 +225,30 @@ else{setColor(rlutil:: GREEN);}
     cout<<".........................................................................."<<endl;
 
 }
+void Articulo::mostrarRegistroVenta(){
+
+if (stock<10){setColor(rlutil:: RED);}
+else{setColor(rlutil:: GREEN);}
+
+    cout<<left;
+    cout<<"    ";
+    cout<<setw(15);
+    cout<< codigo;
+    cout<<setw(17);
+    cout <<nombre;
+    cout<<setw(16);
+    cout<<getNombreTipo();
+    cout<<setw(5);
+    cout<<precio*1.6;
+    cout<<setw(6);
+    cout<<"$"<<stock;
+    cout<<setw(5);
+    cout<<endl;
+    setColor(rlutil:: BLUE);
+    cout<<".........................................................................."<<endl;
+}
+
+
 
 int Articulo:: getPosicion (char cod [6]){
 int pos = 0;

@@ -27,6 +27,7 @@ class Cliente{
      bool leerDeDisco(int);
      void mostrarRegistro();
      void setCodCliente();
+     bool validarIdCliente(int);
 
  };
 

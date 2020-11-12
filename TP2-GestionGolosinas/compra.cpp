@@ -154,9 +154,9 @@ void realizarCompra(){
       int precioParcial = 0;
       Articulo productoExistente;
       compra nuevaCompra;
-    IDGenerator identificador, reg;
-    Proveedor aVerificar;
-    char  nombre [70];
+      IDGenerator identificador, reg;
+      Proveedor aVerificar;
+      char  nombre [70];
 
     ID =  identificador.generateID();  /// Clase para generar el ID que va a linkear todos los registros de la compra.
     identificador.generatePos();

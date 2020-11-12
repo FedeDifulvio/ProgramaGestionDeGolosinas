@@ -43,14 +43,12 @@
 		<Unit filename="Productos.h" />
 		<Unit filename="Proveedores.cpp" />
 		<Unit filename="Proveedores.h" />
+		<Unit filename="Ventas.cpp" />
+		<Unit filename="Ventas.h" />
 		<Unit filename="compra.cpp" />
 		<Unit filename="compra.h" />
 		<Unit filename="funcionesGlobales.h" />
 		<Unit filename="main.cpp" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

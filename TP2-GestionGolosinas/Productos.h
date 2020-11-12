@@ -25,7 +25,9 @@ public:
     bool grabarEnDisco(int = -1);
     bool leerDeDisco(int);
     void mostrarRegistro();
+    void mostrarRegistroVenta();
     int getPosicion(char[]);
+    bool descontarStock(int, int);
 };
 
 void agruparTipo();

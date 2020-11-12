@@ -193,6 +193,27 @@ bool Cliente::leerDeDisco(int pos){
 
 
 }
+bool Cliente::validarIdCliente(int id){
+FILE *puntero;
+
+
+      puntero = fopen("ARCHIVOS/Clientes.dat", "rb");
+      if(puntero == NULL) {
+      return true;
+     }
+
+      while (fread(this, sizeof(Cliente), 1, puntero)){
+        if(this->idCliente == id) {
+                  fclose(puntero);
+                  return true;
+
+            }
+      }
+    fclose(puntero);
+    return false;
+
+
+}
 
 void Cliente::mostrarRegistro(){
     setColor(rlutil:: LIGHTCYAN);
