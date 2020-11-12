@@ -37,7 +37,7 @@ void Venta::setPrecio(int precio){
 precioParcial = precio;
 
 }
-          //METÓDOS DE LA CLASE "datosVentas"
+      //METÓDOS DE LA CLASE "datosVentas"
 int datosVenta::setIdVenta(){
 int autonumerico;
 	FILE* pFile;
@@ -63,24 +63,41 @@ void menuVentas() {
 
       int opc;
       while(true){
-
-            gotoxy (50, 3);
-            cout<<"MENÚ VENTAS"<<endl;
-            gotoxy(47, 4);
-            cout<<"------------------------"<<endl;
-            gotoxy(50, 5);
+            setColor(rlutil:: GREY);
+            gotoxy(43, 2);
+            cout<<" -----------------------------  ";
+            gotoxy(43, 3);
+            cout<<"|";
+            gotoxy(43+ 30, 3);
+            cout<<"|";
+            setColor(rlutil:: LIGHTCYAN);
+            gotoxy(43, 4);
+            cout<<"|";
+            gotoxy(54, 4);
+            cout<<" VENTAS "<<endl;
+            gotoxy(43+30, 4);
+            cout<<"|";
+            setColor(rlutil:: RED);
+            gotoxy(43, 5);
+            cout<<"|";
+            gotoxy(43+ 30, 5);
+            cout<<"|";
+            gotoxy(43, 6);
+            cout<<" -----------------------------  ";
+            setColor(rlutil:: WHITE);
+            gotoxy(50, 5+3);
             cout<<"1) REALIZAR VENTA "<<endl;
-            gotoxy(50, 6);
+            gotoxy(50, 6+3);
             cout<<"2) LISTAR VENTAS  "<<endl;
-            gotoxy(50, 7);
+            gotoxy(50, 7+3);
             cout<<"3) LISTAR POR ID "<<endl;
-            gotoxy(47, 8);
+            gotoxy(47, 8+3);
             cout<<"------------------------"<<endl;
-            gotoxy(48, 9);
+            gotoxy(48, 9+3);
             cout<<"0) VOLVER AL MENÚ "<<endl;
-            gotoxy(50, 12);
+            gotoxy(50, 12+3);
             cout<<"INGRESE UNA OPCIÓN: "<<endl;
-            gotoxy(70, 12);
+            gotoxy(70, 12+3);
             cin>>opc;
             system("cls");
 
@@ -108,32 +125,32 @@ void menuVentas() {
 
  }
 
+void realizarVenta(){
+      datosVenta datos;
+      Venta nuevaVenta;
+      Cliente aVerificar;
+      Articulo aVender;
+      int ID,cliente, pos, cantidad;
+      bool bandera;
+      char codProducto[7];
+      char opc;
 
- void realizarVenta(){
- datosVenta datos;
- Venta nuevaVenta;
- Cliente aVerificar;
- Articulo aVender;
- int ID,cliente, pos, cantidad;
- bool bandera;
- char codProducto[7];
- char opc;
 
-
- ID =  datos.setIdVenta();
- cout<<"INGRESE CODIGO DE CLIENTE: ";
- cin>> cliente;
- bandera=aVerificar.validarIdCliente(cliente);
- while (bandera==false){
-      mensajeError("ERROR, NO ENCONTRADO");
-      system("color 0F");
-      cout<<"REINGRESE CODIGO DE CLIENTE: ";
+      ID =  datos.setIdVenta();
+      cout<<"INGRESE CODIGO DE CLIENTE: ";
       cin>> cliente;
       bandera=aVerificar.validarIdCliente(cliente);
-}
-datos.setIdCliente(cliente);
+      while (bandera==false){
+            mensajeError("ERROR, NO ENCONTRADO");
+            system("color 0F");
+            cout<<"REINGRESE CODIGO DE CLIENTE: ";
+            cin>> cliente;
+            bandera=aVerificar.validarIdCliente(cliente);
+      }
+      datos.setIdCliente(cliente);
 
-       do{   cout<<"INGRESE CODIGO DE PRODUCTO A VENDER: "<<endl;
+      do{
+            cout<<"INGRESE CODIGO DE PRODUCTO A VENDER: "<<endl;
             cin>>codProducto;
             pos = aVender.getPosicion(codProducto);
 
@@ -152,17 +169,18 @@ datos.setIdCliente(cliente);
 
             aVender.leerDeDisco(pos);
             aVender.mostrarRegistroVenta();
+            setColor(rlutil:: WHITE);
             cout << "DESEA AGREGAR ESTE PRODUCTO A LA VENTA? (S/N)";
             cin >> opc;
-       }while(opc =='n'||opc =='N');
+      } while(opc =='n'||opc =='N');
 
 
-         do{
+      do{
             cout<<" INGRESE LA CANTIDAD A VENDER: ";
             cin>> cantidad;
            bandera = aVender.descontarStock(cantidad,pos);
 
-         }while(bandera==false);
+      }while(bandera==false);
 
 
 

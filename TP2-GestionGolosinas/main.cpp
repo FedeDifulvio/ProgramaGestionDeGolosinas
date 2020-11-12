@@ -19,30 +19,51 @@ int main(){
 
 
       while(true){
-
-            gotoxy (50, 3);
-            cout<<"MENÚ PRNICIPAL"<<endl;
-            gotoxy(47, 4);
+            setColor(rlutil:: LIGHTGREEN);
+            gotoxy(43, 2);
+            cout<<" -----------------------------  ";
+            gotoxy(43, 3);
+            cout<<"|";
+            gotoxy(43+ 30, 3);
+            cout<<"|";
+            gotoxy(43, 4);
+            cout<<"|";
+            gotoxy(44, 4);
+            setColor(rlutil:: YELLOW);
+            cout<<" GAZZO CANDY BUSINESS SYSTEM  "<<endl;
+            setColor(rlutil:: LIGHTGREEN);
+            gotoxy(43+30, 4);
+            cout<<"|";
+            gotoxy(43, 5);
+            cout<<"|";
+            gotoxy(43+ 30, 5);
+            cout<<"|";
+            gotoxy(43, 6);
+            cout<<" -----------------------------  ";
+            setColor(rlutil:: WHITE);
+            gotoxy (50, 3+5);
+            cout<<"MENÚ PRINCIPAL"<<endl;
+            gotoxy(47, 4+5);
             cout<<"------------------------"<<endl;
-            gotoxy(50, 5);
+            gotoxy(50, 5+5);
             cout<<"1) PROVEEDORES "<<endl;
-            gotoxy(50, 6);
+            gotoxy(50, 6+5);
             cout<<"2) COMPRAS "<<endl;
-            gotoxy(50, 7);
+            gotoxy(50, 7+5);
             cout<<"3) CLIENTES "<<endl;
-            gotoxy(50, 8);
+            gotoxy(50, 8+5);
             cout<<"4) PRODUCTOS / STOCK "<<endl;
-            gotoxy(50, 9);
+            gotoxy(50, 9+5);
             cout<<"5) VENTAS "<<endl;
-            gotoxy(50, 10);
+            gotoxy(50, 10+5);
             cout<<"6) ESTADISTICAS "<<endl;
-            gotoxy(47, 11);
+            gotoxy(47, 11+5);
             cout<<"------------------------"<<endl;
-            gotoxy(48, 13);
+            gotoxy(48, 13+5);
             cout<<"0) SALIR DEL PROGRAMA"<<endl;
-            gotoxy(50, 15);
+            gotoxy(50, 15+5);
             cout<<"INGRESE UNA OPCIÓN: "<<endl;
-            gotoxy(70, 15);
+            gotoxy(70, 15+5);
             cin>>opc;
             system("cls");
 

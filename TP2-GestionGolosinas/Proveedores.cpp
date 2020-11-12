@@ -186,23 +186,43 @@ void menuProveedores(){
 
       while(true){
 
-            gotoxy (50, 3);
-            cout<<"MENÚ PROVEEDORES"<<endl;
-            gotoxy(47, 4);
+          setColor(rlutil:: CYAN);
+            gotoxy(43, 2);
+            cout<<" -----------------------------  ";
+            gotoxy(43, 3);
+            cout<<"|";
+            gotoxy(43+ 30, 3);
+            cout<<"|";
+            setColor(rlutil:: LIGHTCYAN);
+            gotoxy(43, 4);
+            cout<<"|";
+            gotoxy(52, 4);
+            cout<<" PROVEEDORES "<<endl;
+            gotoxy(43+30, 4);
+            cout<<"|";
+            setColor(rlutil:: LIGHTGREEN);
+            gotoxy(43, 5);
+            cout<<"|";
+            gotoxy(43+ 30, 5);
+            cout<<"|";
+            gotoxy(43, 6);
+            cout<<" -----------------------------  ";
+            setColor(rlutil:: WHITE);
+            gotoxy(47, 4+3);
             cout<<"------------------------"<<endl;
-            gotoxy(50, 5);
+            gotoxy(50, 5+3);
             cout<<"1) ALTA PROVEEDOR "<<endl;
-            gotoxy(50, 6);
+            gotoxy(50, 6+3);
             cout<<"2) LISTAR PROVEEDORES  "<<endl;
-            gotoxy(50, 7);
+            gotoxy(50, 7+3);
             cout<<"3) BAJA PROVEEDOR "<<endl;
-            gotoxy(47, 8);
+            gotoxy(47, 8+3);
             cout<<"------------------------"<<endl;
-            gotoxy(48, 9);
+            gotoxy(48, 9+3);
             cout<<"0) VOLVER AL MENÚ "<<endl;
-            gotoxy(50, 12);
+            gotoxy(50, 12+3);
             cout<<"INGRESE UNA OPCIÓN: "<<endl;
-            gotoxy(70, 12);
+            gotoxy(70, 12+3);
             cin>>opc;
             system("cls");
 

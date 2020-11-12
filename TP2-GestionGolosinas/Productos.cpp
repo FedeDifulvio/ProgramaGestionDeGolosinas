@@ -203,10 +203,24 @@ FILE *puntero;
 
 }
 void Articulo::mostrarRegistro(){
-
-if (stock<10){setColor(rlutil:: RED);}
-else{setColor(rlutil:: GREEN);}
-
+      switch (codTipo) {
+            case 1:
+                  if (stock<=20){setColor(rlutil:: RED);} /// El stock de bombones se pone rojo cuando hay 20 o menos unidades.
+                  else{setColor(rlutil:: GREEN);}
+            break;
+            case 2:
+                  if (stock<=10){setColor(rlutil:: RED);}  /// El stock de chocolates se pone rojo cuando hay 10 o menos unidades.
+                  else{setColor(rlutil:: GREEN);}
+            break;
+            case 3:
+                  if (stock<=15){setColor(rlutil:: RED);} /// El stock de alfajores se pone rojo cuando hay 20 o menos unidades.
+                  else{setColor(rlutil:: GREEN);}
+            break;
+            case 4:
+                  if (stock<=50){setColor(rlutil:: RED);}  /// El stock de caramelos se pone rojo cuando hay 100 o menos unidades.
+                  else{setColor(rlutil:: GREEN);}
+            break;
+      }
     cout<<left;
     cout<<"    ";
     cout<<setw(15);
@@ -269,28 +283,50 @@ void menuProductos() {
 
       int opc;
       while(true){
-
-            gotoxy (50, 3);
-            cout<<"MENÚ PRODUCTOS"<<endl;
-            gotoxy(47, 4);
-            cout<<"------------------------"<<endl;
-            gotoxy(50, 5);
+            gotoxy(43, 2);
+            setColor(rlutil:: RED);
+            cout<<" -----------------------------  ";
+            gotoxy(43, 3);
+            setColor(rlutil:: RED);
+            cout<<"|";
+            gotoxy(43+ 30, 3);
+            setColor(rlutil:: GREEN);
+            cout<<"|";
+             setColor(rlutil:: RED);
+            gotoxy(43, 4);
+            cout<<"|";
+            gotoxy(48, 4);
+            setColor(rlutil:: YELLOW);
+            cout<<" PRODUCTOS Y STOCK  "<<endl;
+            setColor(rlutil:: GREEN);
+            gotoxy(43+30, 4);
+            cout<<"|";
+            setColor(rlutil:: RED);
+            gotoxy(43, 5);
+            cout<<"|";
+            gotoxy(43+ 30, 5);
+            setColor(rlutil:: GREEN);
+            cout<<"|";
+            gotoxy(43, 6);
+            cout<<" -----------------------------  ";
+            setColor(rlutil:: WHITE);
+            gotoxy(44, 5+3);
             cout<<"1) LISTAR TODOS LOS PRODUCTOS "<<endl;
-            gotoxy(50, 6);
+            gotoxy(44, 6+3);
             cout<<"2) LISTAR STOCK MENOR A VALOR INGRESADO  "<<endl;
-            gotoxy(50, 7);
+            gotoxy(44, 7+3);
             cout<<"3) LISTAR STOCK MAYOR A VALOR INGRESADO "<<endl;
-            gotoxy(50, 8);
+            gotoxy(44, 8+3);
             cout<<"4) PRODUCTOS ORDENADOS POR CANTIDAD DE STOCK "<<endl;
-            gotoxy(50, 9);
+            gotoxy(44, 9+3);
             cout<<"5) LISTAR POR TIPO"<<endl;
-            gotoxy(47, 11);
+            gotoxy(47, 11+3);
             cout<<"------------------------"<<endl;
-            gotoxy(48, 13);
+            gotoxy(48, 13+3);
             cout<<"0) VOLVER AL MENÚ "<<endl;
-            gotoxy(50, 16);
+            gotoxy(49, 16+3);
             cout<<"INGRESE UNA OPCIÓN: "<<endl;
-            gotoxy(70, 16);
+            gotoxy(70, 16+3);
             cin>>opc;
             system("cls");
 

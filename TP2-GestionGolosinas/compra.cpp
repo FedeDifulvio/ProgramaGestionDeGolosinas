@@ -97,24 +97,43 @@ void menuCompras() {
 
       int opc;
       while(true){
-
-            gotoxy (50, 3);
-            cout<<"MENÚ COMPRAS"<<endl;
-            gotoxy(47, 4);
-            cout<<"------------------------"<<endl;
-            gotoxy(50, 5);
+            setColor(rlutil:: CYAN);
+            gotoxy(43, 2);
+            cout<<" -----------------------------  ";
+            gotoxy(43, 3);
+            cout<<"|";
+            gotoxy(43+ 30, 3);
+            cout<<"|";
+            setColor(rlutil:: LIGHTCYAN);
+            gotoxy(43, 4);
+            cout<<"|";
+            gotoxy(54, 4);
+            cout<<" COMPRAS "<<endl;
+            gotoxy(43+30, 4);
+            cout<<"|";
+            setColor(rlutil:: GREY);
+            gotoxy(43, 5);
+            cout<<"|";
+            gotoxy(43+ 30, 5);
+            cout<<"|";
+            gotoxy(43, 6);
+            cout<<" -----------------------------  ";
+            setColor(rlutil:: WHITE);
+            gotoxy(47, 4+3);
+           // cout<<"------------------------"<<endl;
+            gotoxy(50, 5+3);
             cout<<"1) REALIZAR COMPRA "<<endl;
-            gotoxy(50, 6);
+            gotoxy(50, 6+3);
             cout<<"2) LISTAR COMPRAS  "<<endl;
-            gotoxy(50, 7);
+            gotoxy(50, 7+3);
             cout<<"3) LISTAR POR ID "<<endl;
-            gotoxy(47, 8);
+            gotoxy(47, 8+3);
             cout<<"------------------------"<<endl;
-            gotoxy(48, 9);
+            gotoxy(49, 9+3);
             cout<<"0) VOLVER AL MENÚ "<<endl;
-            gotoxy(50, 12);
+            gotoxy(50, 12+3);
             cout<<"INGRESE UNA OPCIÓN: "<<endl;
-            gotoxy(70, 12);
+            gotoxy(70, 12+3);
             cin>>opc;
             system("cls");
 

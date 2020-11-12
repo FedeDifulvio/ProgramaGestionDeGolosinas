@@ -46,7 +46,7 @@
 
 1603070532 c:\users\sebastian\desktop\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.h
 
-1603925412 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
+1605208143 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -56,6 +56,8 @@
 	"Proveedores.h"
 	"Clientes.h"
 	"compra.h"
+	"Productos.h"
+	"Ventas.h"
 
 1571555538 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\rlutil.h
 	<iostream>
@@ -75,7 +77,7 @@
 
 1603329309 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.h
 
-1604017960 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.cpp
+1605208814 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\proveedores.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -308,7 +310,7 @@
 	"Proveedores.h"
 	"funcionesGlobales.h"
 
-1604017960 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\clientes.cpp
+1605209091 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\clientes.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -319,9 +321,9 @@
 	"funcionesGlobales.h"
 	"Clientes.h"
 
-1604017960 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\clientes.h
+1605203843 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\clientes.h
 
-1604103961 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
+1605209585 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -337,12 +339,12 @@
 	"Productos.h"
 	"IDgenerator.h"
 
-1604018434 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\compra.h
+1604114606 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\compra.h
 	"Fecha.h"
 
 1603929421 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\fecha.h
 
-1604103158 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\productos.h
+1605203843 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\productos.h
 
 1603928078 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\idgenerator.h
 
@@ -367,7 +369,7 @@
 	"compra.h"
 	"IDgenerator.h"
 
-1604103158 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
+1605210375 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -545,6 +547,22 @@
 	"Fecha.h"
 
 1605145096 source:c:\users\alegazzo\documents\github\programagestiondegolosinas\tp2-gestiongolosinas\ventas.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	<iomanip>
+	"rlutil.h"
+	"funcionesGlobales.h"
+	"Ventas.h"
+	"Productos.h"
+	"Clientes.h"
+
+1605203843 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\ventas.h
+	"Fecha.h"
+
+1605209695 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\ventas.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
