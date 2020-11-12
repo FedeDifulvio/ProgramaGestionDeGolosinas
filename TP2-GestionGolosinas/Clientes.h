@@ -21,6 +21,7 @@ class Cliente{
      char * getApellido();
      int  getDni ();
      int getPosicion(int);
+     int getPosicionPorId(int);
      int  getNumTelefono();
      bool getEstado();
      bool grabarEnDisco(int = -1);

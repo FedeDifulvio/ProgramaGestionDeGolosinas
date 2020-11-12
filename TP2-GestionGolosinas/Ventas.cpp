@@ -129,6 +129,7 @@ void realizarVenta(){
       datosVenta datos;
       Venta nuevaVenta;
       Cliente aVerificar;
+      Cliente clienteQueCompra;
       Articulo aVender;
       int ID,cliente, pos, cantidad;
       bool bandera;
@@ -148,6 +149,16 @@ void realizarVenta(){
             bandera=aVerificar.validarIdCliente(cliente);
       }
       datos.setIdCliente(cliente);
+      clienteQueCompra.leerDeDisco( aVerificar.getPosicionPorId(cliente));
+      setColor(rlutil:: LIGHTRED);
+      cout<<left;
+      cout<<"------------------------------------------------------------------"<<endl;
+      cout<<setw(7)<<"  ID   | "<<setw(15)<<"  NOMBRE    | "<<setw(15)<<"APELLIDO    |" <<setw(8)<<"  DNI    |"<<setw(15)<<"    TELEFONO    |"<<endl;
+      cout<<"------------------------------------------------------------------"<<endl;
+      clienteQueCompra.mostrarRegistro();
+      setColor(rlutil:: WHITE);
+      cout<<endl;
+      cout<<endl;
 
       do{
             cout<<"INGRESE CODIGO DE PRODUCTO A VENDER: "<<endl;
@@ -155,6 +166,7 @@ void realizarVenta(){
             pos = aVender.getPosicion(codProducto);
 
             while(pos == -1) {
+
                 cout<<"El PRODUCTO NO EXISTE, REINGRESE EL CODIGO: ";
                 cin>>codProducto;
                 pos = aVender.getPosicion(codProducto);

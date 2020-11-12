@@ -150,6 +150,19 @@ while(leerDeDisco(pos)) {
 
 }
 
+int Cliente::getPosicionPorId(int id){
+int pos = 0;
+
+while(leerDeDisco(pos)) {
+            if(this->idCliente== id){
+               return pos;
+            }
+        pos ++;
+    }
+    return -1;
+
+}
+
 bool Cliente::grabarEnDisco(int pos){
 FILE *puntero;
 bool bandera;
@@ -374,9 +387,9 @@ aBajar.leerDeDisco(pos);
 setColor(rlutil:: LIGHTRED);
 cout << endl << endl;
 cout<<left;
-cout<<"---------------------------------------------------------"<<endl;
-cout<<setw(15)<<"  NOMBRE    | "<<setw(15)<<"APELLIDO    |" <<setw(8)<<"  DNI    |"<<setw(15)<<"    TELEFONO    |"<<endl;
-cout<<"---------------------------------------------------------"<<endl;
+  cout<<"------------------------------------------------------------------"<<endl;
+  cout<<setw(7)<<"  ID   | "<<setw(15)<<"  NOMBRE    | "<<setw(15)<<"APELLIDO    |" <<setw(8)<<"  DNI    |"<<setw(15)<<"    TELEFONO    |"<<endl;
+  cout<<"------------------------------------------------------------------"<<endl;
 aBajar.mostrarRegistro();
 setColor(rlutil:: WHITE);
 cout << endl << endl;
