@@ -8,7 +8,6 @@ private:
 
 int idVenta;
 char idProducto[7];
-char nombreProducto[70];
 int cantidad;
 float precioParcial;
 
@@ -16,10 +15,10 @@ public:
 
 void setIdVenta(int);
 void setIdProducto(char [7]);
-void setNombreProducto(char [70]);
 bool setCantidad(int);
 void setPrecio(int);
-
+bool leerEnDisco();
+bool grabarEnDisco();
 
 };
 
@@ -34,6 +33,8 @@ public:
 
 int setIdVenta();
 void setIdCliente(int);
+bool leerEnDisco(int);
+bool grabarEnDisco();
 };
 
 

@@ -13,6 +13,20 @@ using namespace std;
  #include"Productos.h"
  #include"Clientes.h"
 
+bool Venta::grabarEnDisco(){
+
+FILE *puntero;
+      puntero = fopen("ARCHIVOS/Venta.dat", "ab");
+      if(puntero == NULL) {
+            return false;
+      }
+      fwrite(this, sizeof(Venta), 1, puntero);
+      fclose(puntero);
+      return true;
+
+
+}
+
 
 void Venta::setIdVenta(int id){
 idVenta=id;
@@ -23,11 +37,8 @@ strcpy(idProducto, cod);
 
 
 }
-void Venta::setNombreProducto(char name[70]){
 
-strcpy(nombreProducto, name);
 
-}
 bool Venta::setCantidad(int cant){
 cantidad= cant;
 
@@ -37,7 +48,42 @@ void Venta::setPrecio(int precio){
 precioParcial = precio;
 
 }
-      //METÓDOS DE LA CLASE "datosVentas"
+//METÓDOS DE LA CLASE "datosVentas"
+bool datosVenta:: leerEnDisco(int pos){
+
+ FILE *puntero;
+      bool bandera;
+      puntero = fopen("ARCHIVOS/DatosVenta.dat", "rb");
+      if(puntero == NULL) {
+            return false;
+      }
+      fseek(puntero, sizeof(datosVenta)*pos, SEEK_SET);
+      bandera = fread(this, sizeof(datosVenta), 1, puntero);
+    fclose(puntero);
+    return bandera;
+
+
+}
+
+bool datosVenta::grabarEnDisco(){
+
+FILE *puntero;
+      puntero = fopen("ARCHIVOS/DatosVenta.dat", "ab");
+      if(puntero == NULL) {
+            return false;
+      }
+      fwrite(this, sizeof(datosVenta), 1, puntero);
+      fclose(puntero);
+      return true;
+
+}
+
+
+
+
+
+
+
 int datosVenta::setIdVenta(){
 int autonumerico;
 	FILE* pFile;
@@ -131,10 +177,11 @@ void realizarVenta(){
       Cliente aVerificar;
       Cliente clienteQueCompra;
       Articulo aVender;
-      int ID,cliente, pos, cantidad;
+      int ID,cliente, pos, cantidadVenta;
       bool bandera;
       char codProducto[7];
       char opc;
+
 
 
       ID =  datos.setIdVenta();
@@ -161,43 +208,69 @@ void realizarVenta(){
       cout<<endl;
 
       do{
-            cout<<"INGRESE CODIGO DE PRODUCTO A VENDER: "<<endl;
-            cin>>codProducto;
-            pos = aVender.getPosicion(codProducto);
 
-            while(pos == -1) {
 
-                cout<<"El PRODUCTO NO EXISTE, REINGRESE EL CODIGO: ";
-                cin>>codProducto;
-                pos = aVender.getPosicion(codProducto);
+            do{
+                  cout<<"INGRESE CODIGO DE PRODUCTO A VENDER: "<<endl;
+                  cin>>codProducto;
+                  pos = aVender.getPosicion(codProducto);
+
+                  while(pos == -1) {
+
+                      cout<<"El PRODUCTO NO EXISTE, REINGRESE EL CODIGO: ";
+                      cin>>codProducto;
+                      pos = aVender.getPosicion(codProducto);
+                  }
+                  setColor(rlutil:: LIGHTRED);
+                  cout<<"--------------------------------------------------------------------------"<<endl;
+                  setColor(rlutil:: CYAN);
+                  cout<<setw(7)<<"  ID PRODUCTO  | "<<setw(10)<<"    NOMBRE    | "<<setw(7)<<"      TIPO      |" <<setw(8)<<"  PRECIO  |"<<setw(8)<<"  CANTIDAD  |"<<endl;
+                  setColor(rlutil:: LIGHTRED);
+                  cout<<"--------------------------------------------------------------------------"<<endl;
+                  setColor(rlutil:: YELLOW);
+
+                  aVender.leerDeDisco(pos);
+                  aVender.mostrarRegistroVenta();
+                  setColor(rlutil:: WHITE);
+                  cout << "DESEA AGREGAR ESTE PRODUCTO A LA VENTA? (S/N)";
+                  cin >> opc;
+            } while(opc =='n'||opc =='N');
+
+
+            do{
+                  cout<<" INGRESE LA CANTIDAD A VENDER: ";
+                  cin>> cantidadVenta;
+                 bandera = aVender.descontarStock(cantidadVenta,pos);
+
+
+            }while(bandera==false);
+
+            nuevaVenta.setIdVenta(ID);
+            nuevaVenta.setIdProducto(codProducto);
+            nuevaVenta.setCantidad(cantidadVenta);
+            nuevaVenta.setPrecio((aVender.getPrecio()*1.6)*cantidadVenta);
+            bandera=nuevaVenta.grabarEnDisco();
+
+          if(bandera) {
+                  mensajeExito("Producto agregado a la venta.");
+                  system("color 0F");
             }
-            setColor(rlutil:: LIGHTRED);
-            cout<<"--------------------------------------------------------------------------"<<endl;
-            setColor(rlutil:: CYAN);
-            cout<<setw(7)<<"  ID PRODUCTO  | "<<setw(10)<<"    NOMBRE    | "<<setw(7)<<"      TIPO      |" <<setw(8)<<"  PRECIO  |"<<setw(8)<<"  CANTIDAD  |"<<endl;
-            setColor(rlutil:: LIGHTRED);
-            cout<<"--------------------------------------------------------------------------"<<endl;
-            setColor(rlutil:: YELLOW);
+            else{
+                  mensajeError("No se puede continuar");
+                  system("color 0F");
+                  system("pause");
+                  system("cls");
+                  return;
+            }
 
-            aVender.leerDeDisco(pos);
-            aVender.mostrarRegistroVenta();
-            setColor(rlutil:: WHITE);
-            cout << "DESEA AGREGAR ESTE PRODUCTO A LA VENTA? (S/N)";
-            cin >> opc;
-      } while(opc =='n'||opc =='N');
+           cout<<"DESEA AGREGAR UN NUEVO PRODUCTO A LA VENTA? (S/N)";
+           cin>>opc;
+           system("cls");
 
 
-      do{
-            cout<<" INGRESE LA CANTIDAD A VENDER: ";
-            cin>> cantidad;
-           bandera = aVender.descontarStock(cantidad,pos);
+      } while(opc =='s'||opc =='S');
 
-      }while(bandera==false);
-
-
-
-
-
+      datos.grabarEnDisco();
 
 
 
