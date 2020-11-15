@@ -19,6 +19,10 @@ bool setCantidad(int);
 void setPrecio(int);
 bool leerEnDisco();
 bool grabarEnDisco();
+int getIdVenta();
+char* getIdProducto();
+int getCantidad();
+float getPrecioParcial();
 
 };
 
@@ -35,6 +39,9 @@ int setIdVenta();
 void setIdCliente(int);
 bool leerEnDisco(int);
 bool grabarEnDisco();
+int getIdVenta();
+int getIdCliente();
+Fecha getHoy();
 };
 
 
@@ -42,5 +49,8 @@ void menuVentas();
 void realizarVenta();
 void mostrarVentas();
 void listarVentaID();
+void mostrarNombreCliente(int);
+void mostrarNombreProducto(char [7]);
+void  leerArchivoVentas( int );
 
 #endif // VENTAS_H_INCLUDED
