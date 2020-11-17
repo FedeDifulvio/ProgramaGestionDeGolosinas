@@ -478,6 +478,11 @@ void listarCompraID(){
       cin>>id;
 
       pos=obtenerPosicionIDcompra(id);
+       if(pos== -1){
+            mensajeError("NO ENCONTRADO");
+            system("color 0F");
+            return;
+      }
       reg.leerDisco(pos);
       leerArchivoCompras(reg.getID(), reg.getPos());
 

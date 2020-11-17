@@ -188,7 +188,7 @@ void menuVentas() {
                 case 2: mostrarVentas();
 
                 break;
-                case 3: //listarVentaID();
+                case 3: listarVentaID();
 
 
                 break;
@@ -218,6 +218,7 @@ void realizarVenta(){
 
 
       ID =  datos.setIdVenta();
+
       cout<<"INGRESE CODIGO DE CLIENTE: ";
       cin>> cliente;
       bandera=aVerificar.validarIdCliente(cliente);
@@ -263,10 +264,17 @@ void realizarVenta(){
                   setColor(rlutil:: YELLOW);
 
                   aVender.leerDeDisco(pos);
+                  if(aVender.getStock()==0){
+                        mensajeError("STOCK 0, NO SE PUEDE VENDER");
+                        system("color 0F");
+                        opc='n';
+                  }
+                 else{
                   aVender.mostrarRegistroVenta();
                   setColor(rlutil:: WHITE);
                   cout << "DESEA AGREGAR ESTE PRODUCTO A LA VENTA? (S/N)";
-                  cin >> opc;
+                  cin >> opc;}
+
             } while(opc =='n'||opc =='N');
 
 
@@ -305,7 +313,26 @@ void realizarVenta(){
 
       datos.grabarEnDisco();
 
+      pos=obtenerPosicionIdVenta(ID);
+      datos.leerEnDisco(pos);
 
+      setColor(rlutil:: LIGHTRED);
+      cout<<left;
+      cout<<"--------------------------------------------------------------"<<endl;
+      setColor(rlutil:: YELLOW);
+      cout<<setw(7)<<"  ID VENTA  | "<<setw(20)<<"         CLIENTE           | "<<setw(15)<<"      FECHA       |"<<endl;
+      setColor(rlutil:: LIGHTRED);
+      cout<<"--------------------------------------------------------------"<<endl;
+      setColor(rlutil:: YELLOW);
+      cout<<"    ";
+      cout<<setw(15);
+      cout<<datos.getIdVenta();
+      cout<<setw(12);
+      mostrarNombreCliente(datos.getIdCliente());
+
+      datos.getHoy().mostrarFecha();
+
+      leerArchivoVentas(datos.getIdVenta());
 
 
 system("pause");
@@ -324,16 +351,16 @@ setColor(rlutil:: WHITE);
      while(reg.leerEnDisco(x) ) {
  setColor(rlutil:: LIGHTRED);
             cout<<left;
-            cout<<"------------------------------------------------"<<endl;
+            cout<<"--------------------------------------------------------------"<<endl;
             setColor(rlutil:: YELLOW);
-            cout<<setw(7)<<"  ID VENTA  | "<<setw(15)<<"  CLIENTE   | "<<setw(15)<<"    FECHA      |"<<endl;
+            cout<<setw(7)<<"  ID VENTA  | "<<setw(20)<<"         CLIENTE           | "<<setw(15)<<"      FECHA       |"<<endl;
             setColor(rlutil:: LIGHTRED);
-            cout<<"------------------------------------------------"<<endl;
+            cout<<"--------------------------------------------------------------"<<endl;
             setColor(rlutil:: YELLOW);
             cout<<"    ";
             cout<<setw(15);
             cout<<reg.getIdVenta();
-            cout<<setw(13);
+            cout<<setw(12);
             mostrarNombreCliente(reg.getIdCliente());
 
             reg.getHoy().mostrarFecha();
@@ -359,10 +386,13 @@ void  leerArchivoVentas( int id){
       }
 
       setColor(rlutil:: WHITE);
-      cout<<"*******************************************************************************************************************"<<endl;
+
       setColor(rlutil:: WHITE);
+
+
   while (fread(&reg, sizeof(Venta), 1 , puntero)) {
-           if(reg.getIdVenta()==id){
+            if(reg.getIdVenta()==id){
+
                   if(bandera) {
 
                         setColor(rlutil:: MAGENTA);
@@ -399,24 +429,6 @@ void  leerArchivoVentas( int id){
             }
 
 
-            else {
-
-                  cout<<endl;
-                  cout<<left;
-                  setColor(rlutil:: LIGHTRED);
-                  cout<<"----------------------"<<endl;
-
-                  cout<<setw(15)<<" PRECIO FINAL: " << precioTotal <<" $| "<<endl;
-                  setColor(rlutil:: LIGHTRED);
-                  cout<<"----------------------"<<endl;
-                  cout<<endl;
-                  cout<<endl;
-
-
-
-
-                  return;
-            }
 
 
       }
@@ -425,10 +437,12 @@ void  leerArchivoVentas( int id){
       cout<<endl;
       cout<<endl;
       setColor(rlutil:: LIGHTRED);
-      cout<<"----------------------"<<endl;
-      cout<<setw(15)<<" PRECIO FINAL: " << precioTotal <<" $| "<<endl;
+      cout<<"------------------------"<<endl;
+      cout<<setw(16)<<" PRECIO FINAL: " <<setw(5)<< precioTotal <<" $| "<<endl;
       setColor(rlutil:: LIGHTRED);
-      cout<<"----------------------"<<endl;
+      cout<<"------------------------"<<endl;
+      setColor(rlutil:: WHITE);
+      cout<<"*******************************************************************************************************************"<<endl;
       cout<<endl;
       cout<<endl;
 
@@ -441,7 +455,11 @@ void mostrarNombreCliente(int id){
  int pos;
 pos = reg.getPosicionPorId(id);
 reg.leerDeDisco(pos);
- cout<< reg.getNombre() << reg.getApellido();
+
+ cout<< reg.getNombre();
+ cout<<setw(14);
+ cout<< reg.getApellido();
+
 }
 
 void mostrarNombreProducto(char cod [7]){
@@ -455,6 +473,83 @@ while(reg.leerDeDisco(x++)){
 
 
 }
+
+
+}
+
+
+int obtenerPosicionIdVenta(int id){
+int pos = 0;
+datosVenta reg;
+FILE* pFile;
+
+pFile = fopen("ARCHIVOS/DatosVenta.dat", "rb");
+
+      if (pFile == NULL) {
+
+       return -1;
+
+      }
+
+      while(fread(&reg, sizeof(datosVenta), 1, pFile)){
+            if (id==reg.getIdVenta()){
+               return pos;
+
+            }
+
+            pos++;
+
+      }
+
+ return -1;
+
+
+
+
+}
+
+
+
+void listarVentaID(){
+
+  system("cls");
+     datosVenta reg;
+      int pos;
+      int id;
+      cout<<"INGRESAR ID DE LA VENTA: ";
+      cin>>id;
+
+      pos=obtenerPosicionIdVenta(id);
+      if(pos== -1){
+            mensajeError("NO ENCONTRADO");
+            system("color 0F");
+            return;
+      }
+      reg.leerEnDisco(pos);
+
+      setColor(rlutil:: LIGHTRED);
+      cout<<left;
+      cout<<"--------------------------------------------------------------"<<endl;
+      setColor(rlutil:: YELLOW);
+      cout<<setw(7)<<"  ID VENTA  | "<<setw(20)<<"         CLIENTE           | "<<setw(15)<<"      FECHA       |"<<endl;
+      setColor(rlutil:: LIGHTRED);
+      cout<<"--------------------------------------------------------------"<<endl;
+      setColor(rlutil:: YELLOW);
+      cout<<"    ";
+      cout<<setw(15);
+      cout<<reg.getIdVenta();
+      cout<<setw(12);
+      mostrarNombreCliente(reg.getIdCliente());
+
+      reg.getHoy().mostrarFecha();
+
+      leerArchivoVentas(reg.getIdVenta());
+
+      system("pause");
+      system("cls");
+
+ setColor(rlutil:: WHITE);
+
 
 
 }

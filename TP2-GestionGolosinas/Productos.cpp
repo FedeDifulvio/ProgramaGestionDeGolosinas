@@ -241,9 +241,25 @@ void Articulo::mostrarRegistro(){
 }
 void Articulo::mostrarRegistroVenta(){
 
-if (stock<10){setColor(rlutil:: RED);}
-else{setColor(rlutil:: GREEN);}
 
+ switch (codTipo) {
+      case 1:
+            if (stock<=20){setColor(rlutil:: RED);} /// El stock de bombones se pone rojo cuando hay 20 o menos unidades.
+            else{setColor(rlutil:: GREEN);}
+      break;
+      case 2:
+            if (stock<=10){setColor(rlutil:: RED);}  /// El stock de chocolates se pone rojo cuando hay 10 o menos unidades.
+            else{setColor(rlutil:: GREEN);}
+      break;
+      case 3:
+            if (stock<=15){setColor(rlutil:: RED);} /// El stock de alfajores se pone rojo cuando hay 20 o menos unidades.
+            else{setColor(rlutil:: GREEN);}
+      break;
+      case 4:
+            if (stock<=50){setColor(rlutil:: RED);}  /// El stock de caramelos se pone rojo cuando hay 100 o menos unidades.
+            else{setColor(rlutil:: GREEN);}
+      break;
+}
     cout<<left;
     cout<<"    ";
     cout<<setw(15);

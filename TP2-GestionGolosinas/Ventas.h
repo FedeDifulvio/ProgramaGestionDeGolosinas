@@ -43,8 +43,7 @@ int getIdVenta();
 int getIdCliente();
 Fecha getHoy();
 };
-
-
+int obtenerPosicionIdVenta(int);
 void menuVentas();
 void realizarVenta();
 void mostrarVentas();
