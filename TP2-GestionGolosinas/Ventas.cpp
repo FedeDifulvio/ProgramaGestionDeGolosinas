@@ -448,6 +448,7 @@ void  leerArchivoVentas( int id){
 
 
  setColor(rlutil:: WHITE);
+ fclose(puntero);
 }
 
 void mostrarNombreCliente(int id){
@@ -493,6 +494,7 @@ pFile = fopen("ARCHIVOS/DatosVenta.dat", "rb");
 
       while(fread(&reg, sizeof(datosVenta), 1, pFile)){
             if (id==reg.getIdVenta()){
+                  fclose(puntero);
                return pos;
 
             }
@@ -500,7 +502,7 @@ pFile = fopen("ARCHIVOS/DatosVenta.dat", "rb");
             pos++;
 
       }
-
+fclose(puntero);
  return -1;
 
 
