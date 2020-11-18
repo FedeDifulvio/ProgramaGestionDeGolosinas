@@ -34,7 +34,7 @@ int documento;
  cout << "INGRESE NRO DE DNI DEL CLIENTE: ";
  cin >> documento;
 
- while(documento <= 0){
+ while(documento <= 0 || (documento/10000000)<1) {      /// un DNI tiene 8 cifras. si es menor a 8 cifras, la división con 10000000 va dar menos de uno.
     mensajeError("ERROR REINGRESE DNI");
     system("color 0F");
     cout << "REINGRESE NRO DE DNI DEL CLIENTE: ";
@@ -93,7 +93,7 @@ void Cliente::setNumTelefono(){
  cout << "INGRESE NRO DE TELEFONO DEL CLIENTE: ";
  cin >> telefono;
 
- while(telefono <= 0){
+ while(telefono <= 0||(telefono / 10000000)<1 ){
     mensajeError("ERROR TELEFONO ERRONEO");
     system("color 0F");
     cout << "REINGRESE NRO DE TELEFONO DEL CLIENTE: ";
@@ -328,13 +328,13 @@ Cliente nuevoCliente;
   nuevoCliente.setNumTelefono();
   nuevoCliente.setEstado(true);
 
-  if (nuevoCliente.grabarEnDisco() ){
+     if (nuevoCliente.grabarEnDisco() ){
        mensajeExito("Cliente registrado");
         system("color 0F");
-  }
+      }
   else{
       mensajeError("Error de archivo" );
-        system("color 0F");
+      system("color 0F");
   }
 
 
@@ -354,13 +354,12 @@ system("cls");
 
 
 
-  while(listado.leerDeDisco(pos)) {
-        if(listado.getEstado()){
-           listado.mostrarRegistro();
-
-        }
+      while(listado.leerDeDisco(pos)) {
+            if(listado.getEstado()){
+                listado.mostrarRegistro();
+            }
         pos ++;
-    }
+      }
   cout<<endl<<endl;
   system("pause");
   system("cls");
