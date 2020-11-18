@@ -168,7 +168,7 @@ bool Proveedor :: validarCodProveedor( char * cod){
 
       while (fread(this, sizeof(Proveedor), 1, puntero)){
          ban = strcmp(this->codigo, cod);
-            if(ban == 0) {
+            if(ban == 0&&this->getEstado()==true) {
                   fclose(puntero);
                   return false;
 

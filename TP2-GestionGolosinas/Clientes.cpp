@@ -216,7 +216,7 @@ FILE *puntero;
      }
 
       while (fread(this, sizeof(Cliente), 1, puntero)){
-        if(this->idCliente == id) {
+        if(this->idCliente == id&&this->getEstado()==true) {
                   fclose(puntero);
                   return true;
 

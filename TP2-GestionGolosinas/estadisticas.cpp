@@ -301,7 +301,6 @@ const char * nombreCategoria (int opc) {
       }
 }
 
-
 void gastosGanancia() {
 
    float gasto, recaudacion;
@@ -484,4 +483,7 @@ const char* nombreMes(int mes){
       }
 
 }
+
+
+
 
