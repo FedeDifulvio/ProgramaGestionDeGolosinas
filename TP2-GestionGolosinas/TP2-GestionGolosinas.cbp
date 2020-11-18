@@ -32,6 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="../../prototipoEstadistica.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Clientes.cpp" />
 		<Unit filename="Clientes.h" />
 		<Unit filename="Fecha.cpp" />
@@ -47,8 +50,14 @@
 		<Unit filename="Ventas.h" />
 		<Unit filename="compra.cpp" />
 		<Unit filename="compra.h" />
+		<Unit filename="estadisticas.cpp" />
+		<Unit filename="estadisticas.h" />
 		<Unit filename="funcionesGlobales.h" />
 		<Unit filename="main.cpp" />
-		<Extensions />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

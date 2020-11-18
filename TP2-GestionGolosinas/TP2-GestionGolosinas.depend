@@ -46,7 +46,7 @@
 
 1603070532 c:\users\sebastian\desktop\programagestiondegolosinas\tp2-gestiongolosinas\validaciones.h
 
-1605572740 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
+1605625079 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\main.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -58,6 +58,7 @@
 	"compra.h"
 	"Productos.h"
 	"Ventas.h"
+	"estadisticas.h"
 
 1605572740 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\rlutil.h
 	<iostream>
@@ -323,7 +324,7 @@
 
 1605572740 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\clientes.h
 
-1605573179 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
+1605641674 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\compra.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -369,7 +370,7 @@
 	"compra.h"
 	"IDgenerator.h"
 
-1605573179 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
+1605643484 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\productos.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -563,7 +564,7 @@
 1605573179 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\ventas.h
 	"Fecha.h"
 
-1605573179 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\ventas.cpp
+1605634093 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\ventas.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -591,4 +592,21 @@
 	"Ventas.h"
 	"Productos.h"
 	"Clientes.h"
+
+1605658200 source:e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\estadisticas.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdio>
+	<cstring>
+	<iomanip>
+	"rlutil.h"
+	"Proveedores.h"
+	"Clientes.h"
+	"compra.h"
+	"Productos.h"
+	"Ventas.h"
+	"estadisticas.h"
+
+1605657127 e:\documentos\00 utn\2º\laboratorio ii\tp2\programagestiondegolosinas\tp2-gestiongolosinas\estadisticas.h
 

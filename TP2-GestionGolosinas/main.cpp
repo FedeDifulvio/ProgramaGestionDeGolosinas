@@ -12,6 +12,7 @@
  #include "compra.h"
  #include "Productos.h"
  #include "Ventas.h"
+ #include"estadisticas.h"
 
 int main(){
       setlocale(LC_ALL, "spanish");
@@ -86,9 +87,13 @@ int main(){
                   case 5: menuVentas();
 
                   break;
+                  case 6: menuEstadisticas();
+
+                  break;
                   case 0: return 0;
                   break;
                   default: cout<<"OPCION NO VALIDA."<<endl;
+                  system("pause");
                   break;
             }
 

@@ -24,7 +24,6 @@ FILE *puntero;
       fclose(puntero);
       return true;
 
-
 }
 
 
@@ -205,6 +204,7 @@ void menuVentas() {
  }
 
 void realizarVenta(){
+
       datosVenta datos;
       Venta nuevaVenta;
       Cliente aVerificar;
@@ -329,9 +329,7 @@ void realizarVenta(){
       cout<<datos.getIdVenta();
       cout<<setw(12);
       mostrarNombreCliente(datos.getIdCliente());
-
       datos.getHoy().mostrarFecha();
-
       leerArchivoVentas(datos.getIdVenta());
 
 
@@ -344,7 +342,6 @@ setColor(rlutil:: WHITE);
 
 
  void mostrarVentas() {
-
       system("cls");
       datosVenta reg;
       int x = 0;
@@ -387,8 +384,6 @@ void  leerArchivoVentas( int id){
 
       setColor(rlutil:: WHITE);
 
-      setColor(rlutil:: WHITE);
-
 
   while (fread(&reg, sizeof(Venta), 1 , puntero)) {
             if(reg.getIdVenta()==id){
@@ -424,13 +419,7 @@ void  leerArchivoVentas( int id){
                   cout<<"------------------------------------------------------------------------"<<endl;
                   precioTotal += reg.getPrecioParcial();
 
-
-
             }
-
-
-
-
       }
 
       cout<<left;
@@ -451,6 +440,8 @@ void  leerArchivoVentas( int id){
  fclose(puntero);
 }
 
+
+
 void mostrarNombreCliente(int id){
  Cliente reg;
  int pos;
@@ -468,7 +459,7 @@ Articulo reg;
 int x=0;
 while(reg.leerDeDisco(x++)){
       if(strcmp(cod,reg.getCodigo())==0){
-       cout<< reg.getNombre();
+            cout<< reg.getNombre();
 
       }
 
@@ -487,14 +478,12 @@ FILE* pFile;
 pFile = fopen("ARCHIVOS/DatosVenta.dat", "rb");
 
       if (pFile == NULL) {
-
-       return -1;
-
+            return -1;
       }
 
       while(fread(&reg, sizeof(datosVenta), 1, pFile)){
             if (id==reg.getIdVenta()){
-                  fclose(puntero);
+                  fclose(pFile);
                return pos;
 
             }
@@ -502,7 +491,7 @@ pFile = fopen("ARCHIVOS/DatosVenta.dat", "rb");
             pos++;
 
       }
-fclose(puntero);
+fclose(pFile);
  return -1;
 
 
@@ -542,9 +531,7 @@ void listarVentaID(){
       cout<<reg.getIdVenta();
       cout<<setw(12);
       mostrarNombreCliente(reg.getIdCliente());
-
       reg.getHoy().mostrarFecha();
-
       leerArchivoVentas(reg.getIdVenta());
 
       system("pause");

@@ -104,7 +104,9 @@ fread(this,sizeof(Articulo),1,pFile);
 
       if((this->stock-cant)>=0){
          this->stock = this->stock - cant;
-         this->grabarEnDisco(pos);
+         fseek(pFile, pos*sizeof(Articulo), 0);
+         fwrite(this,sizeof(Articulo),1,pFile);
+         //this->grabarEnDisco(pos);
          fclose(pFile);
          return true;
       }

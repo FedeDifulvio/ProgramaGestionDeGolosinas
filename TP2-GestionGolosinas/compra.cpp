@@ -254,6 +254,7 @@ void realizarCompra(){
                   productoExistente.leerDeDisco(pos);                /// si el producto ya existe se utiliza el objeto producto existente para actualizar el stock con la nueva cantidad ingresada
                   productoExistente.mostrarRegistro();
                   strcpy(nombre, productoExistente.getNombre());
+                  setColor(rlutil:: WHITE);
                   cout<<" INGRESE LA CANTIDAD A COMPRAR: ";
                   cin>> cantidad;
                   precioParcial = productoExistente.getPrecio();
